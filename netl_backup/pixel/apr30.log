@@ -1,0 +1,352 @@
+nohup: ignoring input
+processing date : 2013-04-30
+Found 3 save data paths
+Read 34606 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 964 new paths
+.Done with file 0/964
+..........Done with file 10/964
+...size getting too big, writing to Db
+Inserted almost 200509 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java:33)
+	at com.digilant.pixel.PixelReporter.startUp(PixelReporter.java:469)
+	at com.digilant.pixel.PixelReporter.<init>(PixelReporter.java:113)
+	at com.digilant.pixel.AggregationWrapper.schedule(AggregationWrapper.java:58)
+	at com.digilant.pixel.AggregationWrapper.main(AggregationWrapper.java:38)
+.......Done with file 20/964
+..........Done with file 30/964
+..size getting too big, writing to Db
+Inserted almost 201968 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java:33)
+	at com.digilant.pixel.PixelReporter.startUp(PixelReporter.java:469)
+	at com.digilant.pixel.PixelReporter.<init>(PixelReporter.java:113)
+	at com.digilant.pixel.AggregationWrapper.schedule(AggregationWrapper.java:58)
+	at com.digilant.pixel.AggregationWrapper.main(AggregationWrapper.java:38)
+........Done with file 40/964
+..........Done with file 50/964
+...size getting too big, writing to Db
+Inserted almost 201064 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java:33)
+	at com.digilant.pixel.PixelReporter.startUp(PixelReporter.java:469)
+	at com.digilant.pixel.PixelReporter.<init>(PixelReporter.java:113)
+	at com.digilant.pixel.AggregationWrapper.schedule(AggregationWrapper.java:58)
+	at com.digilant.pixel.AggregationWrapper.main(AggregationWrapper.java:38)
+.......Done with file 60/964
+..........Done with file 70/964
+.......size getting too big, writing to Db
+Inserted almost 204095 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at j...Done with file 80/964
+..........Done with file 90/964
+.........size getting too big, writing to Db
+
+.Done with file 100/964
+.Inserted almost 200091 lines
+
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+
+
+
+
+
+
+
+
+
+
+
+
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java:33)
+	at com.digilant.pixel.PixelReporter.startUp(PixelReporter.java:469)
+	at com.digilant.pixel.PixelReporter.<init>(PixelReporter.java:113)
+	at com.digilant.pixel.AggregationWrapper.schedule(AggregationWrapper.java:58)
+	at com.digilant.pixel.AggregationWrapper.main(AggregationWrapper.java:38)
+..........Done with file 270/964
+...size getting too big, writing to Db
+Inserted almost 209927 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java:33)
+	at com.digilant.pixel.PixelReporter.startUp(PixelReporter.java:469)
+	at com.digilant.pixel.PixelReporter.<init>(PixelReporter.java:113)
+	at com.digilant.pixel.AggregationWrapper.schedule(AggregationWrapper.java:58)
+	at com.digilant.pixel.AggregationWrapper.main(AggregationWrapper.java:38)
+.......Done with file 280/964
+..size getting too big, writing to Db
+Inserted almost 206418 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java:33)
+	at com.digilant.pixel.PixelReporter.startUp(PixelReporter.java:469)
+	at com.digilant.pixel.PixelReporter.<init>(PixelReporter.java:113)
+	at com.digilant.pixel.AggregationWrapper.schedule(AggregationWrapper.java:58)
+	at com.digilant.pixel.AggregationWrapper.main(AggregationWrapper.java:38)
+........Done with file 290/964
+.size getting too big, writing to Db
+Inserted almost 200836 lines
+
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:260)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:202)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:263)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:106)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:116)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:203)
+	at java.io.Writer.write(Writer.java:140)
+	at com.digilant.fastetl.FileManager.writeFileLines(FileManager.java:53)
+	at com.digilant.fastetl.FileManager.flushCleanList(FileManager.java........size getting too big, writing to Db
+Inserted almost 222425 lines
+
+.Done with file 300/964
+..........Done with file 310/
+Done with file 520/964
+size getting too big, writing to Db
+Inserted almost 211929 lines
+
+Wrote 35127 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35129 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 443 new paths
+.Done with file 0/443
+.....size getting too big, writing to Db
+Inserted almost 215999 lines
+
+Wrote 35135 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35135 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 437 new paths
+.Done with file 0/437
+...size getting too big, writing to Db
+Inserted almost 207173 lines
+
+Wrote 35139 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35139 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 433 new paths
+.Done with file 0/433
+.....size getting too big, writing to Db
+Inserted almost 213217 lines
+
+Wrote 35145 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35145 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 427 new paths
+.Done with file 0/427
+...size getting too big, writing to Db
+Inserted almost 231481 lines
+
+Wrote 35149 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35149 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 423 new paths
+.Done with file 0/423
+.......size getting too big, writing to Db
+Inserted almost 247469 lines
+
+Wrote 35157 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35157 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 415 new paths
+.Done with file 0/415
+.....size getting too big, writing to Db
+Inserted almost 221551 lines
+
+Wrote 35163 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35163 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 409 new paths
+.Done with file 0/409
+...size getting too big, writing to Db
+Inserted almost 208819 lines
+
+Wrote 35167 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35167 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 405 new paths
+.Done with file 0/405
+....size getting too big, writing to Db
+Inserted almost 224844 lines
+
+Wrote 35172 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35172 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 400 new paths
+.Done with file 0/400
+.....size getting too big, writing to Db
+Inserted almost 236704 lines
+
+Wrote 35178 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35178 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 394 new paths
+.Done with file 0/394
+......size getting too big, writing to Db
+Inserted almost 221490 lines
+
+Wrote 35185 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35185 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 387 new paths
+.Done with file 0/387
+....size getting too big, writing to Db
+Inserted almost 211788 lines
+
+Wrote 35190 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35190 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 382 new paths
+.Done with file 0/382
+.....size getting too big, writing to Db
+Inserted almost 217192 lines
+
+Wrote 35196 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35196 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 376 new paths
+.Done with file 0/376
+.....size getting too big, writing to Db
+Inserted almost 200784 lines
+
+Wrote 35202 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35202 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 370 new paths
+.Done with file 0/370
+...size getting too big, writing to Db
+Inserted almost 226667 lines
+
+Wrote 35206 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35206 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 366 new paths
+.Done with file 0/366
+....size getting too big, writing to Db
+Inserted almost 200632 lines
+
+Wrote 35211 clean list files
+renamed directory /home/armita/pixel/staging --> /home/armita/pixel/current
+Found 2 save data paths
+Read 35211 clean list file
+Dir path is /mnt/adnetik/adnetik-uservervillage/prod/userver_log/pixel/2013-04-30/
+Read 964 paths for daylist [2013-04-30]
+Found 361 new paths
+.Done with file 0/361
+.

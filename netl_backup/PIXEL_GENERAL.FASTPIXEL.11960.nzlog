@@ -1,0 +1,38 @@
+
+Load started at:17-Jun-13 13:46:27 EDT
+
+  Database:         FASTPIXEL
+  Tablename:        PIXEL_GENERAL
+  Datafile:         /home/armita/pixel/staging/tmp.txt
+  Host:             netezza-host1
+
+Load Options
+
+  Field delimiter:       '\t'               NULL value:            NULL
+  File Buffer Size (MB): 8                  Load Replay Region (MB): 0
+  Encoding:              INTERNAL           Max errors:            100
+  Skip records:          0                  Max rows:              0
+  FillRecord:            No                 Truncate String:       No
+  Escape Char:           None               Accept Control Chars:  No
+  Allow CR in string:    No                 Ignore Zero:           No
+  Quoted data:           NO                 Require Quotes:        No
+
+  BoolStyle:             1_0                Decimal Delimiter:     '.'
+
+  Disable NFC:           No               
+  Date Style:            YMD                Date Delim:            '-'
+  Time Style:            24HOUR             Time Delim:            ':'
+  Time extra zeros:      No               
+
+Statistics
+
+  number of records read:      499
+  number of bad records:       0
+  -------------------------------------------------
+  number of records loaded:    499
+
+  Elapsed Time (sec): 0.0
+
+-----------------------------------------------------------------------------
+Load completed at: 17-Jun-13 13:46:27 EDT 
+=============================================================================

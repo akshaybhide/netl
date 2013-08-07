@@ -1,0 +1,158 @@
+nohup: ignoring input
+running for 2013-07-16
+realcount:86710437
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-16'
+query res: SUM ---------- 86701952 (1 row)
+dbcount:86701952
+.0097
+sent notification email for netezza
+running for 2013-07-17
+realcount:88487236
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-17'
+query res: SUM ---------- 88472801 (1 row)
+dbcount:88472801
+.0163
+sent notification email for netezza
+running for 2013-07-18
+realcount:86815089
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-18'
+query res: SUM ---------- 86795775 (1 row)
+dbcount:86795775
+.0222
+sent notification email for netezza
+running for 2013-07-19
+realcount:86643289
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-19'
+query res: SUM ---------- 86619738 (1 row)
+dbcount:86619738
+.0271
+sent notification email for netezza
+running for 2013-07-20
+realcount:63074096
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-20'
+query res: SUM ---------- 63066085 (1 row)
+dbcount:63066085
+.0127
+sent notification email for netezza
+running for 2013-07-21
+realcount:71217920
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-21'
+query res: SUM ---------- 71211385 (1 row)
+dbcount:71211385
+.0091
+sent notification email for netezza
+running for 2013-07-22
+realcount:94354051
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-22'
+query res: SUM ---------- 94329718 (1 row)
+dbcount:94329718
+.0257
+sent notification email for netezza
+running for 2013-07-23
+realcount:90401942
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-23'
+query res: SUM ---------- 90377344 (1 row)
+dbcount:90377344
+.0272
+sent notification email for netezza
+running for 2013-07-24
+realcount:97367871
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-24'
+query res: SUM ---------- 97347800 (1 row)
+dbcount:97347800
+.0206
+sent notification email for netezza
+running for 2013-07-25
+realcount:104352432
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-25'
+query res: SUM ----------- 104332824 (1 row)
+dbcount:104332824
+.0187
+sent notification email for netezza
+running for 2013-07-26
+realcount:88602399
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-26'
+query res: SUM ---------- 88579148 (1 row)
+dbcount:88579148
+.0262
+sent notification email for netezza
+running for 2013-07-27
+realcount:66816451
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-27'
+query res: SUM ---------- 66808122 (1 row)
+dbcount:66808122
+.0124
+sent notification email for netezza
+running for 2013-07-28
+realcount:73075708
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-28'
+query res: SUM ---------- 73064392 (1 row)
+dbcount:73064392
+.0154
+sent notification email for netezza
+running for 2013-07-29
+realcount:95722415
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-29'
+query res: SUM ---------- 95705211 (1 row)
+dbcount:95705211
+.0179
+sent notification email for netezza
+running for 2013-07-30
+realcount:92817041
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-30'
+query res: SUM ---------- 92793985 (1 row)
+dbcount:92793985
+.0248
+sent notification email for netezza
+running for 2013-07-31
+realcount:90838977
+select sum(hits) from fastetl.pixel_general where entry_date='2013-07-31'
+nzsql: connect: Connection refused
+Could not connect to the database server at '66.117.49.50' on port 5480
+query res:
+not set
+dbcount:0
+100.0000
+sent notification email for netezza
+running for 2013-08-01
+realcount:89602635
+select sum(hits) from fastetl.pixel_general where entry_date='2013-08-01'
+query res: SUM ---------- 89591906 (1 row)
+dbcount:89591906
+.0119
+sent notification email for netezza
+running for 2013-08-02
+realcount:86931682
+select sum(hits) from fastetl.pixel_general where entry_date='2013-08-02'
+query res: SUM ---------- 73508753 (1 row)
+dbcount:73508753
+15.4407
+sent notification email for netezza
+running for 2013-08-03
+realcount:64875809
+select sum(hits) from fastetl.pixel_general where entry_date='2013-08-03'
+query res: SUM ---------- 64869204 (1 row)
+dbcount:64869204
+.0101
+sent notification email for netezza
+running for 2013-08-04
+realcount:67888180
+select sum(hits) from fastetl.pixel_general where entry_date='2013-08-04'
+query res: SUM ---------- 67882859 (1 row)
+dbcount:67882859
+.0078
+sent notification email for netezza
+running for 2013-08-05
+realcount:89278008
+select sum(hits) from fastetl.pixel_general where entry_date='2013-08-05'
+query res: SUM ---------- 89269468 (1 row)
+dbcount:89269468
+.0095
+sent notification email for netezza
+running for 2013-08-06
+realcount:84951642
+select sum(hits) from fastetl.pixel_general where entry_date='2013-08-06'
+query res: SUM ---------- 84944693 (1 row)
+dbcount:84944693
+.0081
+sent notification email for netezza

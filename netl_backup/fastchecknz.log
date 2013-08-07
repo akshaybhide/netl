@@ -1,0 +1,2470 @@
+exchange:admeld
+running for 2013-06-13
+3753946
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-13
+14545
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-13
+4698
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-13
+8447857
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-13
+2407420
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-13
+3648462
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-13
+903718
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-13
+2291573
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-13
+3389971
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-13
+188807
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-13
+437440
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-13
+7874528
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-13
+892065
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-13
+11212543
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-13
+6469655
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-13
+1134331
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-13' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-14
+2881699
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-14
+12535
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-14
+18327
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-14
+9473048
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-14
+2414248
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-14
+3511910
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-14
+920411
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-14
+2239189
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-14
+3054069
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-14
+142019
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-14
+395782
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-14
+8896772
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-14
+830498
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-14
+9779726
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-14
+6191142
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-14
+1047015
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-14' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-15
+2136062
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-15
+11332
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-15
+6695
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-15
+7391017
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-15
+2254802
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-15
+3019178
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-15
+917849
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-15
+1752665
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-15
+584890
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-15
+163561
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-15
+374741
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-15
+8645826
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-15
+720326
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-15
+8776960
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-15
+5546856
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-15
+885319
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-15' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-16
+2042889
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-16
+7000
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-16
+15653
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-16
+6612287
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-16
+1912324
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-16
+2422713
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-16
+877718
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-16
+2276346
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-16
+2656072
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-16
+67080
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-16
+289060
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-16
+7283498
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-16
+614144
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-16
+8463428
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-16
+4975926
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-16
+773422
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-16' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-17
+2099387
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-17
+9562
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-17
+13309
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-17
+7556308
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-17
+1974144
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-17
+2316064
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-17
+1087936
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-17
+3188109
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-17
+3568478
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-17
+108495
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-17
+353082
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-17
+6112116
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-17
+867099
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-17
+8908386
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-17
+5169091
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-17
+953191
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-17' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-18
+2318629
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-18
+8447
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-18
+12043
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-18
+7877564
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-18
+2128332
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-18
+2852176
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-18
+930297
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-18
+3257854
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-18
+3502526
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-18
+104241
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-18
+371709
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-18
+6849284
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-18
+929841
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-18
+8911719
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-18
+5078194
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-18
+850314
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-18' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-19
+2035928
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-19
+7255
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-19
+3038
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-19
+7331593
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-19
+1913239
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-19
+2736790
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-19
+892202
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-19
+5057370
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-19
+3635260
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-19
+106245
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-19
+367940
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-19
+8085205
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-19
+997500
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-19
+8389907
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-19
+4801361
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-19
+908931
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-19' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-20
+2016880
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-20
+6766
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-20
+3159
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-20
+7761325
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-20
+1719321
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-20
+2828739
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-20
+805570
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-20
+6137529
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-20
+3483678
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-20
+116851
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-20
+341114
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-20
+8141505
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-20
+1039947
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-20
+8177380
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-20
+4717284
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-20
+1043167
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-20' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-21
+1959163
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-21
+6669
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-21
+2654
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-21
+8150856
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-21
+1973217
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-21
+2879437
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-21
+839945
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-21
+5794572
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-21
+3545554
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-21
+118009
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-21
+340550
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-21
+8196227
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-21
+979706
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-21
+7987353
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-21
+4550875
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-21
+1109916
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-21' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-22
+1704162
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-22
+6264
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-22
+2952
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-22
+7827542
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-22
+1807269
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-22
+2598710
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-22
+666184
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-22
+3701504
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-22
+821598
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-22
+111280
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-22
+532947
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-22
+8508983
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-22
+896441
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-22
+6941053
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-22
+3901825
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-22
+783263
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-22' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-23
+1747997
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-23
+3452
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-23
+2340
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-23
+7196560
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-23
+1698033
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-23
+2508012
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-23
+634381
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-23
+3715494
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-23
+2798251
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-23
+90223
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-23
+861718
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-23
+8063474
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-23
+826277
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-23
+6829214
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-23
+3670587
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-23
+537752
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-23' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-24
+1934103
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-24
+4850
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-24
+3155
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-24
+8796178
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-24
+2052926
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-24
+2448784
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-24
+485755
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-24
+13357807
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-24
+3646732
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-24
+97997
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-24
+675852
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-24
+8077902
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-24
+857767
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-24
+8790158
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-24
+4079530
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-24
+681499
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-24' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-25
+1694916
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-25
+3741
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-25
+2878
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-25
+8854806
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-25
+2337910
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-25
+2046713
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-25
+508620
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-25
+26170968
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-25
+3439917
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-25
+105665
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-25
+394957
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-25
+7481172
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-25
+875779
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-25
+9358372
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-25
+3953133
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-25
+641645
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-25' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-26
+1519368
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-26
+5376
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-26
+2202
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-26
+8622891
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-26
+2540767
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-26
+2058025
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-26
+464125
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-26
+27860431
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-26
+3254044
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-26
+116526
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-26
+326293
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-26
+8353618
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-26
+1121851
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-26
+11379752
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-26
+4265661
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-26
+732837
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-26' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-27
+1800091
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-27
+6627
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-27
+2446
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-27
+9179231
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-27
+2675047
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-27
+2567804
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-27
+638958
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-27
+20490925
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-27
+3171597
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-27
+132589
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-27
+358200
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-27
+7979742
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-27
+1425051
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-27
+11037435
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-27
+4504454
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-27
+829648
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-27' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-28
+1493985
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-28
+6677
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-28
+2013
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-28
+8658677
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-28
+1873139
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-28
+2686554
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-28
+610010
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-28
+6453422
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-28
+2768629
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-28
+120659
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-28
+363476
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-28
+6713028
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-28
+1336924
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-28
+10198927
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-28
+4471758
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-28
+951566
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-28' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-29
+1253057
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-29
+7487
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-29
+2345
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-29
+7834297
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-29
+1444730
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-29
+2811759
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-29
+575147
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-29
+7922613
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-29
+835555
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-29
+124001
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-29
+340671
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-29
+6619658
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-29
+1227820
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-29
+7968540
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-29
+3748564
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-29
+743320
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-29' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-06-30
+1626280
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-06-30
+11367
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-06-30
+2504
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-06-30
+8817222
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-06-30
+1455891
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-06-30
+2997487
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-06-30
+683882
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-06-30
+9606532
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-06-30
+2060138
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-06-30
+182999
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-06-30
+384479
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-06-30
+7108858
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-06-30
+1438218
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-06-30
+8294242
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-06-30
+4337236
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-06-30
+837460
+select count(event_type) from fastetl.cbicca where entry_date='2013-06-30' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-07-01
+1353975
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-07-01
+13265
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-07-01
+1842
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-07-01
+5780018
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-07-01
+1846612
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-07-01
+1837698
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-07-01
+429395
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-07-01
+6005200
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-07-01
+4100470
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-07-01
+78035
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-07-01
+323931
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-07-01
+6511099
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-07-01
+847015
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-07-01
+7563623
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-07-01
+2994376
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-07-01
+770364
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-01' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-07-02
+1317709
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-07-02
+7029
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-07-02
+1375
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-07-02
+5103354
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-07-02
+1934459
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-07-02
+1729417
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-07-02
+376343
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-07-02
+5327092
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-07-02
+3483384
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-07-02
+61595
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-07-02
+260172
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-07-02
+6371530
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-07-02
+800291
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-07-02
+7217493
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-07-02
+2640289
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-07-02
+792432
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-02' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-07-03
+1029016
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='admeld'
+query res:
+not set
+dbcount:0
+exchange:admeld_mobile
+running for 2013-07-03
+3200
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='admeld_mobile'
+query res:
+not set
+dbcount:0
+exchange:admeta
+running for 2013-07-03
+538
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='admeta'
+query res:
+not set
+dbcount:0
+exchange:adnexus
+running for 2013-07-03
+4633963
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='adnexus'
+query res:
+not set
+dbcount:0
+exchange:casale
+running for 2013-07-03
+1963476
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='casale'
+query res:
+not set
+dbcount:0
+exchange:contextweb
+running for 2013-07-03
+1705997
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='contextweb'
+query res:
+not set
+dbcount:0
+exchange:dbh
+running for 2013-07-03
+476663
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='dbh'
+query res:
+not set
+dbcount:0
+exchange:facebook
+running for 2013-07-03
+5090862
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='facebook'
+query res:
+not set
+dbcount:0
+exchange:improvedigital
+running for 2013-07-03
+3547080
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='improvedigital'
+query res:
+not set
+dbcount:0
+exchange:liveintent
+running for 2013-07-03
+54985
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='liveintent'
+query res:
+not set
+dbcount:0
+exchange:nexage
+running for 2013-07-03
+313590
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='nexage'
+query res:
+not set
+dbcount:0
+exchange:openx
+running for 2013-07-03
+6692892
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='openx'
+query res:
+not set
+dbcount:0
+exchange:pubmatic
+running for 2013-07-03
+904184
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='pubmatic'
+query res:
+not set
+dbcount:0
+exchange:rtb
+running for 2013-07-03
+6418963
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='google'
+query res:
+not set
+dbcount:0
+exchange:rubicon
+running for 2013-07-03
+2643812
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='rubicon'
+query res:
+not set
+dbcount:0
+exchange:yahoo
+running for 2013-07-03
+894430
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='yahoo'
+query res:
+not set
+dbcount:0
+sent notification email
+exchange:admeld
+running for 2013-07-03
+1029016
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='admeld'
+query res: COUNT --------- 1025816 (1 row)
+dbcount:1025816
+exchange:admeld_mobile
+running for 2013-07-03
+3200
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='admeld_mobile'
+query res: COUNT ------- 3200 (1 row)
+dbcount:3200
+exchange:admeta
+running for 2013-07-03
+538
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='admeta'
+query res: COUNT ------- 538 (1 row)
+dbcount:538
+exchange:adnexus
+running for 2013-07-03
+4633963
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='adnexus'
+query res: COUNT --------- 4633963 (1 row)
+dbcount:4633963
+exchange:casale
+running for 2013-07-03
+1963476
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='casale'
+query res: COUNT --------- 1963476 (1 row)
+dbcount:1963476
+exchange:contextweb
+running for 2013-07-03
+1705997
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='contextweb'
+query res: COUNT --------- 1705997 (1 row)
+dbcount:1705997
+exchange:dbh
+running for 2013-07-03
+476663
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='dbh'
+query res: COUNT -------- 476663 (1 row)
+dbcount:476663
+exchange:facebook
+running for 2013-07-03
+5090862
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='facebook'
+query res: COUNT --------- 5090862 (1 row)
+dbcount:5090862
+exchange:improvedigital
+running for 2013-07-03
+3547080
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='improvedigital'
+query res: COUNT ------- 0 (1 row)
+dbcount:0
+exchange:liveintent
+running for 2013-07-03
+54985
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='liveintent'
+query res: COUNT ------- 54985 (1 row)
+dbcount:54985
+exchange:nexage
+running for 2013-07-03
+313590
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='nexage'
+query res: COUNT -------- 313590 (1 row)
+dbcount:313590
+exchange:openx
+running for 2013-07-03
+6692892
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='openx'
+query res: COUNT --------- 6692892 (1 row)
+dbcount:6692892
+exchange:pubmatic
+running for 2013-07-03
+904184
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='pubmatic'
+query res: COUNT -------- 904184 (1 row)
+dbcount:904184
+exchange:rtb
+running for 2013-07-03
+6418963
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='google'
+query res: COUNT --------- 6418963 (1 row)
+dbcount:6418963
+exchange:rubicon
+running for 2013-07-03
+2643812
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='rubicon'
+query res: COUNT --------- 2643811 (1 row)
+dbcount:2643811
+exchange:yahoo
+running for 2013-07-03
+894430
+select count(event_type) from fastetl.cbicca where entry_date='2013-07-03' and event_type='imp' and ad_exchange='yahoo'
+query res: COUNT -------- 894430 (1 row)
+dbcount:894430
+sent notification email
