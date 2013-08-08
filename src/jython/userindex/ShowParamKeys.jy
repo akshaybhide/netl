@@ -1,0 +1,30 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.data_management import ParamPixelMan
+
+if __name__ == "__main__": 
+
+	
+	pixid = int(sys.argv[1])
+	
+	qrun = ParamPixelMan.QueryRunner(pixid)	
+		
+	keyset = qrun.getKeySet()
+	
+	if keyset.isEmpty():
+		print "No param-pixel data found for pixid %d" % (pixid)
+	
+	for onekey in keyset:
+		print "Found key %s" % (onekey)
+	
+					
+
+	

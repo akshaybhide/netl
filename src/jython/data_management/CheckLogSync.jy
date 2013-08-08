@@ -1,0 +1,107 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import Util,SimpleMail,TimeUtil,DbUtil
+from com.adnetik.shared.Util import *
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+
+GIMP_PATH = "/home/burfoot/dataman/LOG_SYNC_GIMP.txt"
+
+class PackCheck:
+	
+	_excName = None
+	_logType = None
+	_dayCode = None
+	
+	_okayNfs = 0
+	_okayHad = 0
+	
+	def __init__(self, en, lt, dc):
+		self._excName = en
+		self._logType = lt
+		self._dayCode = dc
+		
+	
+	def checkNfsData(self):
+		
+		pathlist = Util.getNfsLogPaths(self._excName, self._logType, self._dayCode)	
+		
+		if pathlist == None:
+			return
+		
+		#print "Read %d nfs paths" % (pathlist.size())
+		
+		for onepath in pathlist:
+			self.readIncrement(onepath)
+			
+			if self._okayNfs > 1000:
+				break
+				
+		#print "Okay NFS is %d" % (self._okayNfs)
+		
+	def readIncrement(self, onepath):
+		for line in fileinput.input(onepath, openhook=fileinput.hook_compressed):
+			self._okayNfs += 1
+
+
+	def checkHadoopData(self):
+		
+		if self._okayNfs == 0:
+			return
+			
+		#assert self._okayNfs > 0, "Must set OkayNfs first"
+		
+		lzopath = "/data/%s/%s_%s_%s.lzo" % (self._logType, self._excName, self._dayCode, "v21")
+		
+		hadcall = "hadoop fs -cat %s | lzop -dcf | head -n %s > %s" % (lzopath, self._okayNfs, GIMP_PATH)
+		
+		#print "Hadoop call is %s" % (hadcall)
+
+		os.system(hadcall)
+		
+		
+		if os.path.exists(GIMP_PATH):
+			
+			for line in fileinput.input(GIMP_PATH):
+				self._okayHad += 1
+			
+			# clean up
+			os.remove(GIMP_PATH)
+			
+		print "Read %d lines from gimp file" % (self._okayHad)
+		
+
+	
+
+
+def checkSinglePack(excname, logtype, daycode):
+	
+
+	
+	if pathlist == None:
+		return
+		
+	for onepath in pathlist:
+		M += readCountNfs(onepath)
+		
+		if M > 1000:
+			break
+			
+	MN = checkReadHadoop(excname, logtype, daycode)
+
+if __name__ == "__main__": 
+
+
+	for relexc in ExcName.values():
+		pcheck = PackCheck(relexc, LogType.imp, "2013-03-03")
+		pcheck.checkNfsData()	
+		pcheck.checkHadoopData()
+		
+		
+		if pcheck._okayHad < pcheck._okayNfs:
+			print "Found only %d hadoop records, but at least %d NFS records" % (pcheck._okayHad, pcheck._okayNfs)
+	

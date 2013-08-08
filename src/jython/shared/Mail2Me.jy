@@ -1,0 +1,39 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import SimpleMail,TimeUtil,FieldLookup,Util,BidLogEntry
+from com.adnetik.shared.Util import *
+
+GIMP_PATH = "_GIMP_MAIL.txt"
+
+if __name__ == "__main__": 
+
+
+	if len (sys.argv) < 2:	
+		print "Usage: Mail2Me.jy file2mail"
+		sys.exit(1)
+		
+	file2mail = sys.argv[1]
+	
+	if not os.path.exists(file2mail):
+		print "Path %s does not exist" % (file2mail)
+		sys.exit(1)
+	
+	mymail = Util.getUserEmail().getEmailAddr()
+	
+	print "Going to mail file %s to %s" % (file2mail, mymail)
+
+	fhandle = open(GIMP_PATH, 'w')
+	fhandle.write("Mail2Me result")
+	fhandle.close()
+	
+	muttcall = "mutt -s \"MuttMail\" -a %s -- %s < %s" % (file2mail, mymail, GIMP_PATH)
+	
+	print "%s" % (muttcall)
+	os.system(muttcall)
+	
+	os.remove(GIMP_PATH)
+

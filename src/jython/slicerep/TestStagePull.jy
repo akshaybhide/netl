@@ -1,0 +1,35 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import *
+from com.adnetik.slicerep import Stage2MainPull
+
+if __name__ == "__main__": 
+
+
+	"""
+	Test the new form of Stage2MainPull
+	"""
+	
+	whbatch = Stage2MainPull.getCampaignWhereBatch(1666)
+	whbatch.addFrag(" ID_HOUR = 6 ")
+	whbatch.addFrag(" ID_EXCHANGE = 4 ")
+
+	print "Whbatch %s" % (whbatch.getWhereClause())
+	
+	smail = SimpleMail("gimp")
+	
+	s2mp = Stage2MainPull(AggType.ad_domain, smail, whbatch)
+	
+	testtab = "__junk_fast_domain_test"
+	
+	s2mp.setTestMode(testtab)
+	s2mp.runAllUpdates()
+	
+	
+	

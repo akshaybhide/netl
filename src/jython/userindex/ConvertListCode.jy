@@ -1,0 +1,96 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.userindex import ListInfoManager
+
+def getFileList(targcode):
+	
+	flist = []
+	
+	for onerec in open('aidxfilelist.txt'):
+		toks = onerec.strip().split(" ")
+		
+		hadpath = toks[-1]
+		
+		if targcode in hadpath:	
+			flist.append(toks[-1])
+		
+		
+		
+	return flist
+		
+
+def genBigFile():
+	
+	hadcall = "hadoop fs -ls /userindex/*/*/* > aidxfilelist.txt"
+	print "Hadoop call is %s" % (hadcall)
+	os.system(hadcall)
+	
+	
+def search4ListCode(linfo, onefile):
+	
+	for posreq in linfo.getPosRequestSet():
+		if posreq.getOldListCode() in onefile:
+			#print "Found %s in file %s" % (posreq.getOldListCode(), onefile)
+			return posreq
+	
+	return None
+	
+def doRename(posreq, oldfile):
+	
+	newlist = posreq.getListCode()
+	oldlist = posreq.getOldListCode()
+	
+	newfile = oldfile.replace(oldlist, newlist)
+	
+	mvcall = "hadoop fs -mv %s %s" % (oldfile, newfile)
+	
+	print "%s" % (mvcall)
+	
+	os.system(mvcall)
+
+if __name__ == "__main__": 
+
+	"""
+	Going to convert the List Codes of all the files on Hadoop
+	"""
+	fcount = 0
+	
+	#genBigFile()
+
+	linfo = ListInfoManager.getSing()	
+
+	flist = getFileList('pixel_16016')
+	
+	for onef in flist:
+			
+		print "Playing with file %s" % (onef)
+		#print "Completed file %d / %d" % (fcount, len(flist))	
+		fcount += 1
+				
+		#print "One file is %s" % (onef)
+		posreq = search4ListCode(linfo, onef)
+		
+		# No old listcode found in path
+		if posreq == None:
+			print "No positive request found for path"
+			continue
+		
+		# No rename necessary
+		if posreq.getListCode() == posreq.getOldListCode():
+			print "Old list=%s and identical to new list %s" % (posreq.getOldListCode(), posreq.getListCode())
+			continue
+		
+		print "rename newcode=%s, oldcode=%s, for file %s" % (posreq.getListCode(), posreq.getOldListCode(), onef)
+	
+		#doRename(posreq, onef)
+	
+					
+	

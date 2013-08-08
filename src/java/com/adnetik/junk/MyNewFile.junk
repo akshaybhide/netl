@@ -1,0 +1,114 @@
+
+package com.adnetik.analytics;
+
+import java.io.*;
+import java.util.*;
+
+//import org.apache.hadoop.mapred.*; 
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.util.*;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.io.*;
+
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.MapContext;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import com.adnetik.shared.*;
+import com.adnetik.shared.BidLogEntry.LogType;
+
+
+/// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/// This code sucks, don't use it
+public class ImpScanQuery extends Configured implements Tool
+{	
+	public static void main(String[] args) throws Exception
+	{
+		int exitCode = ToolRunner.run(new ImpScanQuery(), args);
+		System.exit(exitCode);
+	}
+	
+	public int run(String[] args) throws Exception
+	{
+		// Create a new JobConf
+		Job myjob = new Job(getConf(), "Impression Scan");
+		
+		// Specify various job-specific parameters     
+		{
+			Text a = new Text("");
+			LongWritable b = new LongWritable(0);
+			
+			Util.alignJobConf(myjob, new ImpScanMap(), new IdentityReducer(), a, a, a, a);
+		}
+		
+		System.out.printf("\nJar file is %s", myjob.getJar());		
+
+		
+		//System.out.printf("\nArgs0=%s, args1=%s", args[0], args[1]);
+		String dayCode = "2011-08-11";
+		String inpPath = Util.sprintf("/user/hdfs/data/imp/imp-%s.txt", dayCode);
+		String outPath = Util.sprintf("/user/mapred/analytics/impscan-%s", dayCode);
+		
+		System.out.printf("\nNumber of arguments is %d", args.length);
+		
+		if(args.length >= 2)
+		{
+			inpPath = args[0];
+			outPath = args[1];
+		}
+
+		System.out.printf("\nInput/Output paths are : \n\t%s\n\t%s\n", inpPath, outPath);
+		
+		FileInputFormat.setInputPaths(myjob, new Path(inpPath));		
+		FileOutputFormat.setOutputPath(myjob, new Path(outPath));			
+		
+		// Submit the job, then poll for progress until the job is complete
+		myjob.waitForCompletion(true);		
+		
+		return 0;
+	}
+		
+	public static class ImpScanMap extends Mapper<LongWritable, Text, Text, Text>
+	{
+		int lcount = 0;
+
+		// TODO: this is all really just a special type of splitting field.
+		@SuppressWarnings("unchecked")
+		public void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException
+		{
+			lcount++;
+						
+			BidLogEntry ble = new BidLogEntry(LogType.imp, value.toString());
+			
+			String wtpId = ble.getField("wtp_user_id");
+			
+			if(wtpId.trim().length() == 0)
+				{ return; }
+			
+			int lineItemId = ble.getIntField("line_item_id");
+			int campaignId = ble.getIntField("campaign_id");
+			
+			String val = Util.sprintf("%d\t%d\t%s", lineItemId, campaignId, ble.getField("date_time"));
+			
+			context.write(new Text(wtpId), new Text(val));
+		}
+	}
+	
+	public static class IdentityReducer extends Reducer<Text, Text, Text, Text>
+	{
+		@SuppressWarnings("unchecked")
+		public void reduce(Text key , Iterable<Text> values, Reducer.Context rcontext)
+		throws IOException, InterruptedException
+		{
+			for(Text oneval : values)
+			{
+				rcontext.write(key, oneval);
+				//collector.collect(new Text(""), values.next());
+			}
+		}		
+	}			
+}

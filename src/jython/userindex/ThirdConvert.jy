@@ -1,0 +1,140 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.userindex import ListInfoManager
+
+def getFileList(targcode):
+	
+	flist = []
+	
+	for onerec in open('aidxfilelist.txt'):
+		toks = onerec.strip().split(" ")
+		
+		hadpath = toks[-1]
+		
+		if targcode in hadpath:	
+			flist.append(toks[-1])
+		
+		
+		
+	return flist
+		
+
+def genBigFile():
+	
+	hadcall = "hadoop fs -ls /userindex/*/*/* > aidxfilelist.txt"
+	print "Hadoop call is %s" % (hadcall)
+	os.system(hadcall)
+
+
+def findPrefixReq(suffreq):
+	
+	for onereq in ListInfoManager.getSing().getPosRequestSet():
+		
+		pref_str = onereq.getOldListCode()
+		suff_str = suffreq.getOldListCode()
+		
+		if suff_str.startswith(pref_str) and len(pref_str) < len(suff_str):
+			return onereq
+			
+	return None
+
+def findByOldListCode(oldlc):
+	
+	lclist = []
+	
+	for onereq in ListInfoManager.getSing().getPosRequestSet():
+		if onereq.getOldListCode() == oldlc:
+			lclist.append(onereq)
+			
+	assert len(lclist) == 1, "Multiple requests found for oldlc %s" % (oldlc)
+	
+	return lclist[0]
+
+def doRename(bigfilelist, oldstr, newstr):
+	
+	oldlist = [onefile for onefile in bigfilelist if oldstr in onefile]
+	
+	print "Found %d target files in big file list" % (len(oldlist))
+	
+	for oldname in oldlist:
+		newname = oldname.replace(oldstr, newstr)
+	
+		mvcall = "hadoop fs -mv %s %s" % (oldname, newname)
+	
+		print "%s" % (mvcall)
+	
+		os.system(mvcall)
+
+def getFileList():
+	
+	flist = []
+	
+	for onerec in open('aidxfilelist.txt'):
+		toks = onerec.strip().split(" ")
+		flist.append(toks[-1])
+		
+	return flist
+
+if __name__ == "__main__": 
+
+	"""
+	Going to convert the List Codes of all the files on Hadoop
+	"""
+	
+	genBigFile()
+
+	linfo = ListInfoManager.getSing()	
+
+	bigfilelist = getFileList()
+
+	probreqlist = []
+	probreqlist.append('pixel_14639')
+
+	for suffcode in probreqlist:
+		suffreq = findByOldListCode(suffcode)
+		prefreq = findPrefixReq(suffreq)
+		
+
+		
+		print "Found suffreq %s/%s, prefreq %s/%s " % (suffreq.getListCode(), suffreq.getOldListCode(), prefreq.getListCode(), prefreq.getOldListCode())
+		
+		if prefreq.getListCode() == prefreq.getOldListCode():
+			print "OKay because prefreq listcode is same as oldlistcode"
+			continue
+		
+		
+		look4str = prefreq.getListCode() + suffreq.getOldListCode()[-1]
+		repl2str = suffreq.getListCode()
+		
+		print "Look4Str is %s, replace2 is %s" % (look4str, repl2str)
+		
+		doRename(bigfilelist, look4str, repl2str)
+		
+		
+"""
+List pixel_1601 is a prefix of pixel_16016
+List pixel_1602 is a prefix of pixel_16022
+List pixel_1602 is a prefix of pixel_16028
+List pixel_1602 is a prefix of pixel_16027
+List pixel_1282 is a prefix of pixel_12824
+List pixel_1285 is a prefix of pixel_12850
+List pixel_1285 is a prefix of pixel_12851
+List pixel_1285 is a prefix of pixel_12853
+List pixel_1286 is a prefix of pixel_12861
+List pixel_1313 is a prefix of pixel_13139
+List pixel_1313 is a prefix of pixel_13133
+List pixel_1313 is a prefix of pixel_13135
+List pixel_1313 is a prefix of pixel_13132
+List pixel_1463 is a prefix of pixel_14639
+List pixel_1198 is a prefix of pixel_11980
+List pixel_1198 is a prefix of pixel_11983
+"""
+	

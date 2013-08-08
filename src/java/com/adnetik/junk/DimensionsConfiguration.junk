@@ -1,0 +1,109 @@
+package com.adnetik.bm_etl;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.*;
+
+import org.apache.hadoop.io.Writable;
+
+import com.adnetik.shared.*;
+
+public class DimensionsConfiguration implements Writable 
+{
+	
+	public enum DimCode { date, advertiserId, adExchange, campaignId, lineItemId, country, metroCode,
+			region, city, userId, gender, browser, visibility, 
+			domain, creativeId, size, language, expandDate };
+	
+	// TODO: refactor this all using Java enum and maybe a 
+	// Map<DimenType, Boolean> 
+
+	private static DimensionsConfiguration _DEFAULT = null;
+	
+	public static synchronized DimensionsConfiguration getDefault() 
+	{ 
+		if(_DEFAULT == null)
+		{
+			_DEFAULT = new DimensionsConfiguration();
+		}
+		
+		return _DEFAULT; 
+	}
+	
+	public static synchronized void setDefault(DimensionsConfiguration dimconf)
+	{
+		_DEFAULT = dimconf;
+	}
+	
+	private Map<DimCode, Boolean> _fmap = Util.treemap();	
+
+	private static final String TRUE = "true";
+	private static final String FALSE = "false";
+
+	public DimensionsConfiguration() {
+		
+		for(DimCode dc : DimCode.values())
+			{ _fmap.put(dc, false); }
+	}
+	
+	public DimensionsConfiguration(Properties mprops)
+	{
+		for(DimCode dc : DimCode.values())
+		{
+			// NEED TO MATCH UP PROPERTY NAMES WITH ENUM NAMES
+			String propname = Util.sprintf("dimensions.%s", dc.toString());
+			
+			if(!mprops.containsKey(propname))
+				{ throw new RuntimeException("Properties file does not contain required field: " + propname); }
+			
+			String val = mprops.getProperty(propname);
+			_fmap.put(dc, "true".equals(val.toLowerCase()));
+		}		
+	}
+	
+	public void setAllTrue() {
+
+		for(DimCode dc : DimCode.values())
+			{ _fmap.put(dc, true); }
+		
+	}
+	
+	public boolean isFieldEnabled(DimCode dc) { return _fmap.get(dc); }
+	
+	public void readFields(DataInput arg0) throws IOException {
+		
+		for(DimCode dc : DimCode.values())
+		{
+			_fmap.put(dc, arg0.readBoolean());	
+		}
+	}
+
+	public void write(DataOutput arg0) throws IOException {
+		
+		for(DimCode dc : DimCode.values())
+		{
+			arg0.writeBoolean(_fmap.get(dc));
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+
+		return toString().equals(obj.toString());
+	}
+
+	@Override
+	public String toString() 
+	{
+		return Util.sprintf("DimensionsConfiguration [%s]", _fmap.toString());		
+	}
+}

@@ -1,0 +1,311 @@
+package com.adnetik.bm_etl;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.adnetik.bm_etl.DimensionsConfiguration.DimCode;
+
+import com.adnetik.shared.*;
+import com.adnetik.shared.BidLogEntry;
+
+public class DimensionsManager {
+
+	public static final String OTHERS = "others";
+	public static final String OTHERS_CODE = "OT";
+	public static final String UNKNOWN = "unknown";
+	
+	private Map<String,String> exchangeMap;
+	
+	// TODO: why isn't this handled in the catalog tables like everything else?
+	public DimensionsManager() {
+		exchangeMap=new HashMap<String,String>();
+		exchangeMap.put("google", "1");
+		exchangeMap.put("admeld", "2");
+		exchangeMap.put("rubicon", "3");
+		exchangeMap.put("openx", "4");
+		exchangeMap.put("adnexus", "5");
+		exchangeMap.put("adbrite", "6");
+		exchangeMap.put("improve_digital", "7");
+		exchangeMap.put("yahoo", "8");
+		exchangeMap.put("adaptv", "9");
+		exchangeMap.put("casale", "10");
+		exchangeMap.put("nexage", "12");
+		exchangeMap.put("contextweb", "13");
+		exchangeMap.put("rmx", "14");
+		
+		
+	}
+	private boolean aggDomain = false;
+
+	public boolean isAggDomain() {
+		return aggDomain;
+	}
+
+	public void setAggDomain(boolean aggDomain) {
+		this.aggDomain = aggDomain;
+	}
+	
+	public DimensionsAgg fillDimensions(BidLogEntry logentry)
+	{
+		DimensionsAgg result = new DimensionsAgg();
+
+		// Straight transfers
+		{
+			result.setField(DimCode.advertiserId, logentry.getField("advertiser_id"));
+			result.setField(DimCode.campaignId, logentry.getField("campaign_id"));
+			result.setField(DimCode.lineItemId, logentry.getField("line_item_id"));
+			result.setField(DimCode.creativeId, logentry.getField("creative_id"));
+			
+			// TODO - this must be user_DMA, right?
+			result.setField(DimCode.metroCode, "TODO");
+			//result.setField(DimCode.metroCode, bidContext.metroCode);
+			result.setField(DimCode.userId, logentry.getField("wtp_user_id"));
+			result.setField(DimCode.city, logentry.getField("user_city"));
+		}
+		
+		// Transfers that go through the various lookup maps in Util.mapXXX
+		// TODO: why are there separate values for OTHERS vs OTHERS_CODE???
+		transferField(result, DimCode.country, BmUtil.mapCountry, logentry.getField("user_country"), OTHERS_CODE);
+		transferField(result, DimCode.size, BmUtil.mapSize, logentry.getField("size"), OTHERS);
+		transferField(result, DimCode.visibility, BmUtil.mapVisibility, logentry.getField("visibility"), OTHERS);
+		transferField(result, DimCode.language, BmUtil.mapLanguage, logentry.getField("user_language"), OTHERS_CODE);
+		transferField(result, DimCode.gender, BmUtil.mapGender, logentry.getField("gender"), UNKNOWN);
+		transferField(result, DimCode.browser, BmUtil.mapBrowser, logentry.getField("browser"), OTHERS);
+		transferField(result, DimCode.region, BmUtil.mapRegion, logentry.getField("user_region"), OTHERS_CODE);
+		transferField(result, DimCode.adExchange, BmUtil.mapAdExchange, logentry.getField("ad_exchange"), OTHERS);
+		transferField(result, DimCode.domain, BmUtil.mapDomain, logentry.getField("domain"), OTHERS);
+		
+		// Special handling of date info
+		{
+			String s = BmUtil.dateConversion(logentry.getField("date_time"), logentry.getField("user_country"), logentry.getField("user_region"));
+			result.setField(DimCode.date, s);
+		}
+		
+		return result;		
+	}
+	
+
+	
+	private void transferField(DimensionsAgg target, DimCode newkey, Map<String, Integer> srcmap, String trykey, String defkey)
+	{ transferField(target, newkey, srcmap, trykey, defkey, false); }
+	
+	private void transferField(DimensionsAgg target, DimCode newkey, Map<String, Integer> srcmap, String trykey, String defkey, boolean hardcheck)
+	{
+		if(hardcheck && !srcmap.containsKey(trykey.toLowerCase()))
+		{
+			Util.pf("\nError: src map for dimcode %s does not contain key '%s'", newkey, trykey);
+			Util.pf("\nSource map is %s", srcmap);
+			throw new RuntimeException("transfer field error");
+		}
+		
+		String relkey = srcmap.containsKey(trykey.toLowerCase()) ? trykey : defkey;
+		Integer newval = srcmap.get(relkey.toLowerCase());
+		
+		target.setField(newkey, newval.toString());
+	}
+	
+	/*
+	public DimensionsAgg fillDimensionsRMX(Header header, BidContext bidContext) 
+	{
+
+		throw new RuntimeException("not yet implemented");
+		DimensionsAgg result = new DimensionsAgg();
+
+		result.date = header.date;
+		result.country = bidContext.userCountry;
+		result.adExchange = bidContext.adExchange;
+
+		result.advertiserId = bidContext.advertiserId;
+		result.campaignId = bidContext.campaignId;
+
+		
+//		result.lineItemId = bidContext.lineItemId;
+		if (BmUtil.mapLineItem.containsKey(bidContext.lineItemId.toLowerCase()))
+			result.lineItemId = BmUtil.mapLineItem.get(bidContext.lineItemId.toLowerCase())
+					.toString();
+		else
+			result.lineItemId = BmUtil.mapLineItem.get(OTHERS.toLowerCase()).toString();
+		
+		
+		result.creativeId = bidContext.creativeId;
+
+		if (BmUtil.mapSize.containsKey(bidContext.size.toLowerCase()))
+			result.size = BmUtil.mapSize.get(bidContext.size.toLowerCase())
+					.toString();
+		else
+			result.size = BmUtil.mapSize.get(OTHERS.toLowerCase()).toString();
+
+
+		result.visibility = bidContext.visibility;
+		result.language = bidContext.language;
+		result.gender = bidContext.gender;
+
+		if ((bidContext.domain.length() > 500)
+				|| (bidContext.domain.equals(""))
+				|| (bidContext.domain.equals("---")))
+			result.domain = OTHERS.toLowerCase();
+		else
+			result.domain = bidContext.domain;
+
+		result.browser = bidContext.browser;
+		result.region = bidContext.userRegion;
+		result.metroCode = bidContext.metroCode;
+		result.userId = bidContext.userId;
+		result.city = bidContext.city;
+
+		return result;
+	}
+	*/
+
+
+
+	
+	private String getValue(String value, boolean isEnabled) {
+		if (isEnabled)
+			return value;
+		return null;
+	}
+
+	public DimensionsAgg aggregate(DimensionsAgg source) {
+
+		/*
+		 * 
+		 * public String gender; public String browser; public String
+		 * visibility; public String domain;
+		 * 
+		 * public String creativeId; public String size; public String language;
+		 */
+		
+		
+		/*
+		DimensionsAgg newValue = new DimensionsAgg();
+		DimensionsConfiguration conf = newValue.getConfiguration();
+
+
+		newValue.date = getValue(source.date, conf.isDateEnabled());
+		newValue.advertiserId = getValue(source.advertiserId,
+				conf.isAdvertiserIdEnabled());
+		newValue.adExchange = getValue(source.adExchange,
+				conf.isAdExchangeEnabled());
+		newValue.campaignId = getValue(source.campaignId,
+				conf.isCampaignIdEnabled());
+		newValue.lineItemId = getValue(source.lineItemId,
+				conf.isLineItemIdEnabled());
+		newValue.country = getValue(source.country, conf.isCountryEnabled());
+		newValue.metroCode = getValue(source.metroCode,
+				conf.isMetroCodeEnabled());
+		newValue.region = getValue(source.region, conf.isRegionEnabled());
+
+		newValue.city = getValue(source.city, conf.isCityEnabled());
+		newValue.userId = getValue(source.userId, conf.isUserIdEnabled());
+
+		newValue.gender = getValue(source.gender, conf.isGenderEnabled());
+		newValue.browser = getValue(source.browser, conf.isBrowserEnabled());
+		newValue.visibility = getValue(source.visibility,conf.isVisibilityEnabled());
+
+		
+		newValue.creativeId = getValue(source.creativeId,
+				conf.isCreativeIdEnabled());
+		newValue.size = getValue(source.size, conf.isSizeEnabled());
+		newValue.language = getValue(source.language, conf.isLanguageEnabled());
+
+
+		if (conf.isDomainEnabled()) {
+			if (aggDomain) {
+				if (BmUtil.mapDomain.containsKey(source.domain.toLowerCase()))
+					newValue.domain = BmUtil.mapDomain.get(
+							source.domain.toLowerCase()).toString();
+				else
+					newValue.domain = BmUtil.mapDomain.get("Others".toLowerCase())
+							.toString();
+			} else
+				newValue.domain = source.domain;
+		}
+		
+
+		return newValue;
+		*/
+		
+		throw new RuntimeException("not yet implemented");
+	}
+	
+	/*
+	public DimensionsAgg fillDimensions(Header header, BidContext bidContext) {
+
+		DimensionsAgg result = new DimensionsAgg();
+
+		// Straight transfers
+		{
+			result.setField(DimCode.advertiserId, bidContext.advertiserId);
+			result.setField(DimCode.campaignId, bidContext.campaignId);
+			result.setField(DimCode.lineItemId, bidContext.lineItemId);
+			result.setField(DimCode.creativeId, bidContext.creativeId);
+			result.setField(DimCode.metroCode, bidContext.metroCode);
+			result.setField(DimCode.userId, bidContext.userId);
+			result.setField(DimCode.city, bidContext.city);
+		}
+		
+		// Transfers that go through the various lookup maps in BmUtil.mapXXX
+		// TODO: why are there separate values for OTHERS vs OTHERS_CODE???
+		transferField(result, DimCode.country, BmUtil.mapCountry, bidContext.userCountry, OTHERS_CODE, true);
+		transferField(result, DimCode.size, BmUtil.mapSize, bidContext.size, OTHERS);
+		transferField(result, DimCode.visibility, BmUtil.mapVisibility, bidContext.visibility, OTHERS);
+		transferField(result, DimCode.language, BmUtil.mapLanguage, bidContext.language, OTHERS_CODE);
+		transferField(result, DimCode.gender, BmUtil.mapGender, bidContext.gender, UNKNOWN);
+		transferField(result, DimCode.browser, BmUtil.mapBrowser, bidContext.browser, OTHERS);
+		transferField(result, DimCode.region, BmUtil.mapRegion, bidContext.userRegion, OTHERS_CODE);
+
+		{
+			String dval = bidContext.domain;
+			if(dval.length() > 500 || dval.equals("") || dval.equals("---"))
+				{ dval = OTHERS.toLowerCase(); }
+			
+			result.setField(DimCode.domain, dval);
+		}
+
+		// Special handling of date info
+		{
+			String s = BmUtil.dateConversion(header.date, bidContext.userCountry, bidContext.userRegion);
+			result.setField(DimCode.date, s);
+		}
+
+		// Special handling for adExchange
+		// TODO: why is this special?
+		{
+			String exchangeId = exchangeMap.get(bidContext.adExchange.toLowerCase());
+			result.setField(DimCode.adExchange, exchangeId == null ? "127" : exchangeId);
+		}	
+		
+		return result;
+	}
+	*/	
+		/*
+	public DimensionsAgg fillDimensionsLIRMX(Header header, BidContext bidContext) {
+
+		throw new RuntimeException("not yet implemented");
+		
+		DimensionsAgg result = new DimensionsAgg();
+
+		result.date = header.date;
+		result.country = bidContext.userCountry;
+		result.adExchange = bidContext.adExchange;
+		result.advertiserId = bidContext.advertiserId;
+		result.campaignId = bidContext.campaignId;
+		result.lineItemId = bidContext.lineItemId;
+		result.creativeId = bidContext.creativeId;
+		result.size = bidContext.size;
+		result.visibility = bidContext.visibility;
+		result.language = bidContext.language;
+		result.gender = bidContext.gender;
+		result.domain = bidContext.domain;
+		result.browser = bidContext.browser;
+		result.region = bidContext.userRegion;
+		result.metroCode = bidContext.metroCode;
+		result.userId = bidContext.userId;
+		result.city = bidContext.city;
+
+		return result;
+	}
+		*/
+
+}

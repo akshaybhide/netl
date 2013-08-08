@@ -1,0 +1,41 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.userindex import ListInfoManager, UserIdxDb
+
+def hasCookieList(pathset, scanreq, blockend):
+	
+	return getStagingInfoPath(scanreq, blockend) in pathset
+
+
+def getStagingInfoPath(scanreq, blockend):
+	
+	return "/userindex/staging/%s/%s.cklist" % (blockend, scanreq.getListCode())
+
+if __name__ == "__main__": 
+
+	linfo = ListInfoManager.getSing()
+
+	linelist = [oneline.strip() for oneline in open('cklist.txt')]
+	
+	pathset = set()
+	
+	for oneline in linelist:
+		pathset.add(oneline.strip().split(" ")[-1])
+
+	simplist = [onepath.split("/")[-1] for onepath in pathset]
+
+	reqlist = [onereq for onereq in linfo.getPosRequestSet()]
+	
+	blockend = "2013-06-16"
+	blockstart = "2013-06-10"
+	
+	okayreqlist = [onereq for onereq in reqlist if hasCookieList(pathset, onereq, blockstart)]
+	

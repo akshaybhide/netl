@@ -1,0 +1,91 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import *
+
+
+def sumAs(fname):
+	
+	return "sum(%s) as %s" % (fname, fname)
+
+def getSelectSql(dimset, intset, dblset, tablename):
+	
+	sel_list = []
+	
+	dimset.remove(DimCode.hour)
+	
+
+	dimlist = ["ID_%s" % onedim.toString().upper() for onedim in dimset]
+	dimlist.append("ENTRY_DATE") 
+	
+	intlist = [sumAs("NUM_%s" % oneint.toString().upper()) for oneint in intset]
+	dbllist = [sumAs("IMP_%s" % onedbl.toString().upper()) for onedbl in dblset]
+	
+	sel_list.extend(dimlist)
+	sel_list.extend(intlist)
+	sel_list.extend(dbllist)
+	
+	extralist = []
+	extralist.append("IF(NUM_CLICKS + NUM_CONVERSIONS > 0, 1, 0) as HAS_CC")
+	extralist.append("FLOOR(RAND()*(100 - 1e-14)) AS RAND99")
+	extrastuff = ",".join(extralist)
+	
+	return "SELECT %s, \n%s FROM %s \nGROUP BY %s" % (",".join(sel_list), 
+		extrastuff, tablename, ",".join(dimlist))
+
+
+def showInSql(tabname, vname, csource):
+	
+	overlapset = DbUtil.getColOverlapSet(tabname, vname, csource)
+	#print "Overlap set is %s" % (overlapset)
+	
+	fieldstr = ",".join(overlapset)
+	
+	whclause = " WHERE ID_CAMPAIGN = 1666 "
+	
+	insql = "INSERT INTO %s (%s) SELECT (%s) FROM %s %s" %  (tabname, fieldstr, fieldstr, vname, whclause)
+
+	print "insert SQL is \n%s" % (insql)
+
+if __name__ == "__main__": 
+
+
+	"""
+	Going to create views to facilitate the pull from the staging table 
+	to the main table
+	"""
+
+	aggtype = AggType.ad_domain
+	
+	dimset = DatabaseBridge.getDimSet(aggtype, DbTarget.internal)
+	intset = DatabaseBridge.getIntFactSet(aggtype, DbTarget.internal);
+	dblset = DatabaseBridge.getDblFactSet(aggtype, DbTarget.internal);
+	
+	#print "Dim set is %s" % (dimset)
+	
+	stagename = "fast_domain_stage"
+	tabname = "__junk_fast_domain_test"
+	vname = "__v_fast_domain_stage2main"
+	
+	#print "select SQL is %s" % (getSelectSql(dimset, intset, dblset, tabname))
+	
+	selsql = getSelectSql(dimset, intset, dblset, stagename)
+	vsql = "CREATE OR REPLACE VIEW %s AS %s" % (vname, selsql)
+	
+	#print "View SQL is \n%s" % (vsql)
+
+	showInSql(tabname, vname, DatabaseBridge(DbTarget.internal))
+	
+	#DbUtil.execSqlUpdate(vsql, DatabaseBridge(DbTarget.internal))
+	#print "Created view"
+	
+	
+	
+	
+	
+	

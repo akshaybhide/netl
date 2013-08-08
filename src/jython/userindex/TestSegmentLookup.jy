@@ -1,0 +1,39 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil,Util,BidLogEntry
+from com.adnetik.shared.Util import *
+
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.bm_etl.BmUtil import *
+
+if __name__ == "__main__": 
+
+	print "Going to test my conversion of log data into IAB segment data"
+	
+	testfile = "context_test.txt"
+	
+	
+	
+		
+	for onerec in open(testfile):
+		
+		ble = BidLogEntry(LogType.imp, LogVersion.v21, onerec)
+			
+		excinfo = ble.getExcSegIdList()
+		
+		if not excinfo:
+			continue
+			
+		iabset = ble.getIabSegSet()
+			
+		domain = ble.getField("domain")
+		
+		
+		
+		print "Domain: %s ExcInfo : %s IAB set : %s" % (domain, excinfo, iabset)
+		
+		

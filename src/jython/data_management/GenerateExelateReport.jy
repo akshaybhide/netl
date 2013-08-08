@@ -1,0 +1,102 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+
+def getExSegnameMap():
+	
+	sql = "SELECT seg_id, seg_name FROM thirdparty.ex_price_info"
+		
+	reslist = DbUtil.execSqlQueryPair(sql, DatabaseBridge(DbTarget.internal))
+	
+	segmap = {}
+	
+	for onerow in reslist:
+		segmap[onerow._1] = onerow._2
+
+	return segmap	
+
+def getSegPriceInfo(daycode):
+	
+	sql_format = "SELECT max_seg_id, %s FROM thirdparty.ex_usage_main WHERE nfsdate = '%s' group by max_seg_id"
+	
+	price_sql = sql_format % ("sum(price_cpm)/1000", daycode)
+	count_sql = sql_format % ("count(*)", daycode)
+			
+	#print "Count sql is %s, price sql is %s" % (count_sql, price_sql)		
+			
+	pricelist = DbUtil.execSqlQueryPair(price_sql, DatabaseBridge(DbTarget.internal))
+	countlist = DbUtil.execSqlQueryPair(count_sql, DatabaseBridge(DbTarget.internal))
+	
+	assert len(pricelist) == len(countlist), "Mismatch between sql query result lists"
+	
+	pricemap = {}
+	countmap = {}
+	
+	for i in range(len(pricelist)):
+		pricemap[pricelist[i]._1] = pricelist[i]._2
+		countmap[countlist[i]._1] = countlist[i]._2
+	
+	#print "Res list is %s" % (reslist)
+	
+	reslist = [(msi, countmap[msi], pricemap[msi]) for msi in pricemap]
+	
+	return reslist
+
+def getSegSet(daycode):
+	
+	sql = "SELECT distinct(max_seg_id) FROM thirdparty.ex_usage_main WHERE nfsdate = '%s'" % (daycode)
+	
+	segset = set()
+	
+	seglist = DbUtil.execSqlQuery(sql, DatabaseBridge(DbTarget.internal))
+	
+	print "Seg list is %s" % (seglist)
+
+if __name__ == "__main__": 
+
+	# Going to take all the days with the same start month as this one
+	year = int(sys.argv[1])
+	mnth = int(sys.argv[2])
+	
+	monthlist = TimeUtil.getMonthList(year, mnth)
+	
+	reportpath = "/home/burfoot/exelate/billing/report_%s__%s.tsv" % (monthlist[0], monthlist[-1])
+	
+	fhandle = open(reportpath, 'w')
+	
+	segmap = getExSegnameMap()
+	
+	for oneid in segmap:
+		print "ID %d maps to %s" % (oneid, segmap[oneid])
+	
+	print "Date, #Imp, Cost, Segment ID, Segment Name"
+	
+	for oneday in monthlist:
+		reslist = getSegPriceInfo(oneday)
+		
+		datalist = []
+		
+		for x in reslist:
+			segname = segmap[x[0]] if x[0] in segmap else "UNNAMED SEGMENT"
+		
+			datalist.append((oneday, str(x[1]), str(x[2]), str(x[0]), segname))
+			
+			#datalist = [(oneday, str(x[1]), str(x[2]), str(x[0]), segname) for x in reslist]
+			
+		for onerow in datalist:
+			print "\t".join(onerow)
+			fhandle.write("\t".join(onerow))
+			fhandle.write("\n")
+			
+			
+	fhandle.close()
+					
+
+	

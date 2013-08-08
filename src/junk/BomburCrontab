@@ -1,0 +1,4 @@
+
+# FASTETL health monitor mail, checks that the clean list is complete, and checks the size of the big tables
+00 03	* * * java -cp /home/burfoot/jars/adnetik.jar com.adnetik.slicerep.HealthMonitorMail >> /home/burfoot/slicerep/logs/healthmonitor.log 2>> /home/burfoot/slicerep/logs/healthmonitor.err
+

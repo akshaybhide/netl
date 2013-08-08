@@ -1,0 +1,30 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.data_management import ParamPixelMan
+
+if __name__ == "__main__": 
+
+	"""
+	Reset the AdBoard status of every list in the STATUS_MAP to the actual value
+	This is important because sometimes lists get out of sync with AdBoard
+	Can use optional command line argument to specify which particular list to update
+	"""
+
+	listcode = None
+	
+	if len(sys.argv) >= 2:
+		listcode = sys.argv[1]
+
+	
+	
+					
+
+	

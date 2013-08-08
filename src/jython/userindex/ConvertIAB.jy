@@ -1,0 +1,114 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil,Util,IABLookup
+from com.adnetik.shared.Util import *
+
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.bm_etl.BmUtil import *
+
+
+def getExchangeMap(toprow):
+	
+	toks = toprow.split("\t")
+	
+	excmap = {}
+	
+	#print "Tokens are %s" % (toks)
+	
+	for i in range(len(toks)):
+		
+		if i == 0:
+			continue
+		
+		onetok = toks[i].lower()
+		excname = Util.excLookup(onetok)
+		excmap[i] = excname
+		print "Token #%d is %s" % (i, excname)
+	
+	return excmap
+
+def oneRowInsert(excmap, onerow):
+
+	toks = onerow.split("\t")
+	
+	print "Tokens are %s" % (toks)
+	
+	iablist = getSubList(toks[0])
+	assert len(iablist) == 1, "Weird IAB list for token %s" % (toks[0])
+	
+	iab_id = iablist[0]
+	insql = ""
+	
+	for i in range(len(toks)):
+		
+		if i == 0:
+			continue
+		
+		exclist = getSubList(toks[i])
+		
+		for exc_id in exclist:
+			onesql = "INSERT INTO IAB_info.exc2iab_map (excname, exc_id, iab_id) values ('%s', %d, %d);\n" % (excmap[i], exc_id, iab_id)
+			insql += onesql
+			DbUtil.execSqlUpdate(onesql, DatabaseBridge(DbTarget.external))
+
+			
+			
+	print insql		
+	#DbUtil.execSqlUpdate(insql, DatabaseBridge(DbTarget.external))
+	
+
+
+def getSubList(onetok):
+	
+	sublist = []
+	
+	if onetok.startswith("\""):
+		assert onetok.endswith("\"")
+		onetok = onetok[1:-1]
+		
+	for oneid in onetok.split(","):
+		
+		# Some nexage IDs start with "IAB" prefix
+		if oneid.startswith("IAB"):
+			oneid = oneid[3:]
+		
+		if len(oneid.strip()) == 0:
+			continue
+		
+		sublist.append(int(oneid))
+		
+	return sublist
+	
+	
+def uploadNameMap(namemap):
+
+	pass
+	
+
+if __name__ == "__main__": 
+
+	print "Going to convert the IAB data"
+	
+	namemap = IABLookup.getSing().getNameMap()
+	
+	print namemap
+	
+	#csvfilepath = "/home/burfoot/userindex/IAB_vertical_matrix.tsv"
+	#
+	#excmap = None
+	#
+	#for oneline in open(csvfilepath):
+	#	
+	#	oneline = oneline.strip()
+	#	
+	#	if excmap == None:
+	#		excmap = getExchangeMap(oneline)
+	#		continue
+	#	
+	#	oneRowInsert(excmap, oneline)
+	#	
+	#	#sys.exit(1)

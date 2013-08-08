@@ -1,0 +1,41 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,FieldLookup,Util
+from com.adnetik.shared.Util import *
+from com.adnetik.bm_etl.BmUtil import AggType
+
+if __name__ == "__main__": 
+
+
+	if len (sys.argv) < 2:	
+		print "Usage: GenVersionWikiInfo.jy <logversion>"
+		sys.exit(1)
+		
+		
+		
+	logvers = Util.LogVersion.valueOf(sys.argv[1])	
+	
+	if len(sys.argv) == 3:
+		typelist = [LogType.valueOf(sys.argv[2])]
+	else:
+		typelist = [LogType.click, LogType.conversion, LogType.imp, LogType.bid_all, LogType.no_bid_all]	
+		
+	for logtype in typelist:
+		
+		print "Going to run for type=%s, vers=%s" % (logtype, logvers)
+	
+		fname = "%s_%s.txt" % (logtype, logvers)
+	
+		flist = FieldLookup.getFieldList(logtype, logvers)
+	
+		fhandle = open(fname, "w")
+	
+		for i in range(len(flist)):
+			fhandle.write("%d\t%s\n" % (i+1, flist[i]))
+			
+		fhandle.close()

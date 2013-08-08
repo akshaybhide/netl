@@ -1,0 +1,29 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.userindex import ListInfoManager,ScanRequest,AdBoardApi
+	
+	
+adapi = AdBoardApi()
+adapi.readFromAdBoard()
+reqlist = [onereq for onereq in adapi.getListRequests()]
+
+
+linfo = ListInfoManager.getSing()
+
+scanmap = {}
+for onescan in linfo.getPosRequestSet():
+	scanmap[onescan.getListCode()] = onescan
+	
+	
+testscan = scanmap['user_44591']	
+
+
+

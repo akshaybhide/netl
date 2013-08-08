@@ -1,0 +1,194 @@
+package com.adnetik.bm_etl;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+import java.util.*;
+
+import org.apache.hadoop.io.WritableComparable;
+
+import com.adnetik.shared.*;
+import com.adnetik.bm_etl.DimensionsConfiguration.DimCode;
+
+public class DimensionsAgg implements WritableComparable<DimensionsAgg> 
+{
+	
+	private Map<DimCode, String> _data = Util.treemap();
+
+	private DimensionsConfiguration configuration;
+
+	
+	public DimensionsAgg()
+	{
+		this(DimensionsConfiguration.getDefault());	
+	}
+	
+	public DimensionsAgg(DimensionsConfiguration dimconf)
+	{
+		configuration = dimconf;	
+	}
+	
+	/*
+	public void setUp(DimensionsConfiguration dc) 
+	{
+		configuration = (dc == null ? DimensionsConfiguration.getDefault() : dc);
+	}
+	*/
+	
+	
+
+	public DimensionsConfiguration getConfiguration() {
+		return configuration;
+	}
+
+	public String getField(DimCode dc) { return _data.get(dc); }
+	
+	public void setField(DimCode dc, String s) { _data.put(dc, s); }
+	
+
+	private String readStringField(DataInput in, boolean isEnabled) throws IOException 
+	{
+		if (isEnabled) {
+			return in.readUTF();
+		}
+		return null;
+	}
+
+	private void writeStringField(String value, DataOutput out, boolean isEnabled) throws IOException
+	{
+		if (isEnabled) {
+			out.writeUTF((value == null ? "null" : value));
+		}
+	}
+
+	public void readFields(DataInput in) throws IOException 
+	{
+		// TODO: this is really weird. I guess this enables us to do multiple
+		// aggregations in one Hadoop job
+		configuration = new DimensionsConfiguration();
+		configuration.readFields(in);
+
+		for(DimCode dc : DimCode.values())
+		{
+			String val = readStringField(in, configuration.isFieldEnabled(dc));
+			_data.put(dc, val);
+		}
+	}
+
+	public void write(DataOutput out) throws IOException 
+	{
+		configuration.write(out);
+
+		for(DimCode dc : DimCode.values())
+		{
+			writeStringField(_data.get(dc), out, configuration.isFieldEnabled(dc));
+		}
+	}
+
+	@Override
+	public String toString() 
+	{
+		return toString(BmUtil.TAB);
+	}
+	
+	public String toString(String delim)
+	{
+		if(configuration == null)
+			{ throw new RuntimeException("Configuration is null, must set configuration before calling this code."); }
+		
+		StringBuffer sb = new StringBuffer();
+		
+		for(DimCode dc : DimCode.values())
+		{
+			if(dc == DimCode.date)
+			{
+				if(configuration.isFieldEnabled(DimCode.date))
+				{
+					String mdate = _data.get(dc);
+					
+					// TODO: make this smarter
+					{
+						String dayonlydate = mdate.substring(0, 8);
+						sb.append("date=").append(dayonlydate).append(delim);
+					}
+						
+					/*
+					if (configuration.isFieldEnabled(DimCode.expandDate)) 
+					{
+						String month = mdate.substring(0, 6);
+						String day = mdate.substring(0, 8);
+						//sb.append("date=");
+						sb.append(month).append(delim);
+						sb.append(day).append(delim);
+						sb.append(mdate).append(delim);
+					}
+					*/
+				}		
+				
+			} else {
+				
+				print(dc + "=" + _data.get(dc), sb, configuration.isFieldEnabled(dc), delim);
+			}
+		}
+		
+		// Pull out trailing tab
+		String retval = sb.toString();
+		return retval.substring(0, retval.length() - delim.length());		
+		
+	}
+	
+	
+
+	private void print(String value, StringBuffer sb, boolean enabled, String delim) {
+		if (enabled) {
+			sb.append(value).append(delim);
+		}
+
+	}
+
+	public int compareTo(DimensionsAgg arg0) {
+
+		if (this == arg0)
+			return 0;
+
+		if (arg0 == null)
+			return 1;
+
+		for(DimCode dc : DimCode.values())
+		{
+			int comp = compareFields(_data.get(dc), arg0._data.get(dc), configuration.isFieldEnabled(dc));
+			
+			if(comp != 0)
+				{ return comp; }
+		}
+		
+		return 0;
+	}
+
+
+	private int compareFields(String value1, String value2, boolean isEnabled) {
+		if (isEnabled) {
+			if (value1 == null) {
+				return (value2 == null) ? 0 : -1;
+			}
+			if (value2 == null)
+				return 1;
+			return value1.compareTo(value2);
+		}
+		return 0;
+	}	
+	
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+
+		return toString().equals(obj.toString());
+		
+	}
+}

@@ -1,0 +1,29 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.userindex import ListInfoManager, UserIdxDb
+
+
+if __name__ == "__main__": 
+
+	sql = "select report_id FROM report_info WHERE neg_list_code = 'null'"
+	replist = DbUtil.execSqlQuery(sql, UserIdxDb())
+
+					
+	print "Bad report ID list is %s" % (replist)
+	
+	for onebad in replist:
+		
+		delsql = "DELETE FROM eval_scheme WHERE report_id = %d" % (onebad)
+		print "Delete SQL %s" % (delsql)
+		delrows = DbUtil.execSqlUpdate(delsql, UserIdxDb())
+		
+		print "Deleted %d rows for report_id %d" % (delrows, onebad)
+	

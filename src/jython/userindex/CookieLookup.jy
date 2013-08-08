@@ -1,0 +1,33 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.data_management import ParamPixelMan
+
+if __name__ == "__main__": 
+
+	if len(sys.argv) < 4:
+		print "Usage: TestParamQuery.jy <pixid> <key> <value>"
+		sys.exit(1)
+
+	pixid = int(sys.argv[1])
+	key = sys.argv[2]
+	val = sys.argv[3]
+	
+	qrun = ParamPixelMan.QueryRunner(pixid)
+		
+	idset = qrun.get4KeyVal(key, val)
+	
+	if not idset.isEmpty():
+		print "Found %d IDs for this query, first is %s, last is %s" % (idset.size(), idset.first(), idset.last())
+	
+	
+					
+
+	

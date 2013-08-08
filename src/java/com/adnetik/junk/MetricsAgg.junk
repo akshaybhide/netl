@@ -1,0 +1,48 @@
+package com.adnetik.bm_etl;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.*;
+
+import com.adnetik.bm_etl.BmUtil.*;
+
+public class MetricsAgg extends Metrics {
+
+	public int factCount = 0;
+
+	@Override
+	public void readFields(DataInput data) throws IOException {
+		super.readFields(data);
+		factCount = data.readInt();
+	}
+	
+	@Override
+	public void write(DataOutput data) throws IOException {
+		super.write(data);
+		data.writeInt(factCount);
+	}
+
+	@Override
+	public String toString() {
+		return toString("\t");		
+	}
+	
+	public String toString(String delim)
+	{
+		return super.toString(delim) + delim + "factcount=" + factCount;	
+	}
+
+	@Override
+	public void add(Metrics metric) {
+		super.add(metric);
+		factCount++;
+	}
+
+	public void add(MetricsAgg metric) {
+		super.add(metric);
+		factCount += metric.factCount;
+	}
+	
+
+}

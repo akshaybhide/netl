@@ -1,0 +1,237 @@
+package com.adnetik.bm_etl;
+
+import java.io.*;
+import java.util.*;
+
+import org.apache.hadoop.mapred.*; 
+//import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.util.*;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.io.*; 
+
+import com.adnetik.shared.*;
+import com.adnetik.bm_etl.BmUtil.*; // Put all the enums in the same place
+
+/**
+ * 
+ * CatalogUtil
+ * 
+ */
+public class CatalogUtil extends Configured implements Tool 
+{	
+	private static CatalogUtil _SING;
+	
+
+	
+	public static void main(String args[]) throws Exception
+	{
+		HadoopUtil.runEnclosingClass(args);
+	}
+	
+	Map<String, Integer> mapVisibility;
+	Map<String, Integer> mapSize;
+	Map<String, Integer> mapBrowser;
+	Map<String, Integer> mapAdExchange;
+	Map<String, Integer> mapLanguage;
+	Map<String, Integer> mapGender;	
+	Map<String, Integer> mapCountry;
+	Map<String, Integer> mapRegion;
+	Map<String, Integer> mapDomain;
+	
+	// TODO: Should this also be indexed by daycode?
+	Map<CurrCode, Double> excRateMap;
+	
+	// Look at all the enums!
+	// Get the currency code for a given exchange/datacenter pair
+	Map<ExcName, Map<DataCenter, CurrCode>> currCodeExcMap;
+	
+	
+	public int run(String[] args)
+	{
+		//createAllCatalogs(getConf());
+		exchangeRateDb2Hdfs(getConf(), Util.getYesterdayCode());
+		return 1;
+	}
+
+	// Returns singleton instance of CatalogUtil
+	// Need daycode information to 
+	public static CatalogUtil getSing()
+	{
+		
+		
+	}
+
+	public static String getFullCatCode(Catalog cat)
+	{
+		return "cat_" + cat.toString();
+	}
+	
+	public static String getCatHdfsPath(Catalog cat)
+	{
+		return Util.sprintf("%s/%s.txt", BmUtil.BASE_CAT_HDFS_PATH, cat);
+	}
+
+	public static void createAllCatalogs(Configuration conf, String daycode) {
+		
+		createCatalogs(conf, Catalog.values());
+		exchangeRateDb2Hdfs(conf, daycode);	
+	}
+	
+	public static void createCatalogs(Configuration conf, Catalog... tocreate)
+	{
+		for(Catalog cat : tocreate)
+		{
+			createCatalog(cat, conf);
+		}		
+	}
+	
+	public static void createDomainCatalogs(Configuration conf) {
+		createCatalogs(conf, Catalog.domain); 
+	}
+	
+	public static void createCatalog(Catalog mcat, Configuration conf) 
+	{
+		// TODO: this should be isinternal vs. isexternal
+		Map<String, Integer> catmap = DatabaseBridge.readCatalog(mcat, false);
+		
+		Path catpath = new Path(getCatHdfsPath(mcat));
+		
+		Util.pf("\nFound catalog of size %d for catalog %s", catmap.size(), mcat);
+		
+		writeCatalog(catmap, conf, catpath);
+	}
+	
+	public static void writeCatalog(Map<String, Integer> catalog, Configuration conf, Path fileName) 
+	{
+		List<String> flines = Util.vector();
+		
+		for(String k : catalog.keySet())
+		{ 
+			String s = Util.sprintf("%s\t%d", k, catalog.get(k));	
+			flines.add(s);
+		}
+		
+		try  { HadoopUtil.writeLinesToPath(flines, FileSystem.get(conf), fileName); }
+		catch (Exception ex) { throw new RuntimeException(ex); }
+	}
+
+	public static Map<String, Integer> readCatalog(Catalog mcat, Configuration conf) 
+	{
+		Path catpath = new Path(getCatHdfsPath(mcat));
+		return readCatalog(catpath, conf);
+	}
+	
+	public static Map<CurrCode, Double> readExchangeInfo(String daycode, Configuration conf)
+	{
+		Map<CurrCode, Double> excmap = Util.treemap();
+		
+		String path = BmUtil.getExchangeRatePath(daycode);
+		List<String> exclist = HadoopUtil.readFileLinesE(conf, path);
+		
+		for(String s : exclist)
+		{
+			String[] code_rate = s.split("\t");
+			CurrCode cc = CurrCode.valueOf(code_rate[0]);
+			Double rate = Double.valueOf(code_rate[1]);
+			excmap.put(cc, rate);
+		}
+		
+		return excmap;
+	}
+	
+	// Copy the datacenter/exchange/currency table DB->HDFS
+	public static void pullCurrDataCenterDb2Hdfs(Configuration conf, String daycode) 
+	{
+		Util.pf("\nPulling exchange rate info from DB...");
+		List<String> daylist = Util.getDateRange(daycode, 200);
+		Collections.reverse(daylist); // Go backward, starting from daycode
+		
+		Map<CurrCode, Double> excmap = null;
+		
+		for(String oneday : daylist)
+		{
+			excmap = DatabaseBridge.readExchangeRateInfo(oneday, false); 
+			
+			if(excmap.size() >= 2)
+			{
+				Util.pf("\nFound valid exchange rate info for %s", oneday);	
+				break;
+			}
+		}
+		
+		List<String> flist = Util.vector();
+		
+		for(CurrCode cc : excmap.keySet())
+		{
+			String f = Util.sprintf("%s\t%.03f", cc, excmap.get(cc));
+			Util.pf("\nFound exchange rate info %s", f);
+			flist.add(f);
+		}
+		
+		String fname = BmUtil.getExchangeRatePath(daycode);
+			
+		try  { HadoopUtil.writeLinesToPath(flist, FileSystem.get(conf), fname); }
+		catch (Exception ex) { throw new RuntimeException(ex); }		
+	}	
+	
+	
+	public static void exchangeRateDb2Hdfs(Configuration conf, String daycode) 
+	{
+		Util.pf("\nPulling exchange rate info from DB...");
+		List<String> daylist = Util.getDateRange(daycode, 200);
+		Collections.reverse(daylist); // Go backward, starting from daycode
+		
+		Map<CurrCode, Double> excmap = null;
+		
+		for(String oneday : daylist)
+		{
+			excmap = DatabaseBridge.readExchangeRateInfo(oneday, false); 
+			
+			if(excmap.size() >= 2)
+			{
+				Util.pf("\nFound valid exchange rate info for %s", oneday);	
+				break;
+			}
+		}
+		
+		List<String> flist = Util.vector();
+		
+		for(CurrCode cc : excmap.keySet())
+		{
+			String f = Util.sprintf("%s\t%.03f", cc, excmap.get(cc));
+			Util.pf("\nFound exchange rate info %s", f);
+			flist.add(f);
+		}
+		
+		String fname = BmUtil.getExchangeRatePath(daycode);
+			
+		try  { HadoopUtil.writeLinesToPath(flist, FileSystem.get(conf), fname); }
+		catch (Exception ex) { throw new RuntimeException(ex); }		
+	}
+	
+	
+	public static Map<String, Integer> readCatalog(Path fileName, Configuration conf) 
+	{
+		Map<String, Integer> result = Util.treemap();
+		
+		try {
+			BufferedReader reader = HadoopUtil.hdfsBufReader(FileSystem.get(conf), fileName);
+			
+			for(String line = reader.readLine(); line != null; line = reader.readLine())
+			{
+				String[] parameters = line.split(BmUtil.TAB);
+				result.put(parameters[0].toLowerCase(), Integer.parseInt(parameters[1]));
+			}
+			
+		} catch (Exception e)  {
+
+			//log.error(e.getLocalizedMessage());
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		//Util.pf("Read %d items from %s", result.size(), HDFSUtil.getAbsolutePath(fileName));
+		return result;
+	}
+}

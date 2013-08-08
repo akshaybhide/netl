@@ -1,0 +1,66 @@
+
+HADOOP_HEAPSIZE=20000
+
+##########################################################
+# ADREPORT ETL JOBS
+# Daily pull of copy of Adboard --> Adreport, MUST RUN AFTER Eugenia's Code, to 
+00 02	* * *  java -cp /local/bin/jars/adnetik.jar com.adnetik.bm_etl.AdBoardPull >> /var/log/cronlogs/burfoot/adboardpull.log 2>> /var/log/cronlogs/burfoot/adboardpull.err
+
+# BM_ETL daily update code. This no longer uses HDFS logsynch LZO files, so it can run ASAP after log files are finished writing for previous day.
+00 01	* * * /local/src/cronjobs/BmUpdate.py yest >> /var/log/cronlogs/burfoot/bmupdate.log 2>> /var/log/cronlogs/burfoot/bmupdate.err
+
+# RMX data synch. This grabs the RMX data in AdBoard database copy and pulls it into rmx_data_perm, then into ad_general
+00 04	* * * java -cp /local/bin/jars/adnetik.jar com.adnetik.bm_etl.PullRmxData >> /var/log/cronlogs/bm_etl/pullrmxdata.log 2>> /var/log/cronlogs/bm_etl/pullrmxdata.err
+
+# Data Check Mail - check that all the aggregations have same totals
+00 09	* * * java -cp /local/bin/jars/adnetik.jar com.adnetik.slicerep.DataCheckMail yest >> /var/log/cronlogs/bm_etl/datacheckmail.log 2>> /var/log/cronlogs/bm_etl/datacheckmail.err
+
+# Start RapidAdBoardUpdate. Each invocation runs 24 times, once per hour
+30 00	* * * java -cp /local/bin/jars/adnetik.jar com.adnetik.bm_etl.RapidAdBoardUpdate >> /var/log/cronlogs/bm_etl/rapidadboardupdate.log 2>> /var/log/cronlogs/bm_etl/rapidadboardupdate.err
+
+# Unmapped RMX line items
+30 00	* * * java -cp /local/bin/jars/adnetik.jar com.adnetik.bm_etl.RmxAlert >> /var/log/cronlogs/bm_etl/rmxalert.log 2>> /var/log/cronlogs/bm_etl/rmxalert.err
+
+# This code downloads an XML file giving daily exchange rates.
+# We NEED up-to-date exchange rate information for the 
+# ETL code to run correctly, because the ETL converts everything into USD.
+00 20	* * * java -cp /local/bin/jars/adnetik.jar com.adnetik.bm_etl.CurrencyInfo >> /var/log/cronlogs/burfoot/currencyinfo.log 2>> /var/log/cronlogs/burfoot/currencyinfo.err
+###########################################################
+
+# HdfsCleanup - TODO, unify this with SearchDestroy
+00 07	* * *  hadoop jar /local/bin/jars/adnetik.jar com.adnetik.data_management.HdfsCleanup >> /var/log/cronlogs/burfoot/hdfscleanup.log 2>> /var/log/cronlogs/burfoot/hdfscleanup.err
+
+# Check to ensure that the FileSynch code ran correctly
+00 10	* * * /local/src/cronjobs/FileSynchCheck.py yest >> /var/log/cronlogs/burfoot/filesynchcheck.log 2>> /var/log/cronlogs/burfoot/filesynchcheck.err
+
+# User Index Slice status mail
+30 08	* * * hadoop jar /local/bin/jars/adnetik.jar com.adnetik.userindex.SliceCheckMail >> /var/log/cronlogs/burfoot/slicecheckmail.log 2>> /var/log/cronlogs/burfoot/slicecheckmail.err
+
+# StagingInfo manager - do all the prep work for UserIndex staging files
+30 01	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.userindex.StagingInfoManager yest >> /var/log/cronlogs/burfoot/staginginfo.log 2>> /var/log/cronlogs/burfoot/staginginfo.err
+
+# BlueKai merge operation
+00 05	* * * hadoop jar /local/bin/jars/adnetik.jar com.adnetik.userindex.BluekaiDataMan yest >> /var/log/cronlogs/burfoot/bluekaimerge.log 2>> /var/log/cronlogs/burfoot/bluekaimerge.err
+
+# User Index auxiliary data monitor
+00 09	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.userindex.AuxDataMonitor >> /var/log/cronlogs/burfoot/auxdatamon.log 2>> /var/log/cronlogs/burfoot/auxdatamon.err
+
+# Upload exelate dump file
+00 06	* * * /local/src/cronjobs/UploadExelate.py yest >> /var/log/cronlogs/burfoot/uploadexelate.log 2>> /var/log/cronlogs/burfoot/uploadexelate.err
+
+# Exelate Merge Job, needs to run after Exelate Upload procedure
+00 09	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.userindex.ExelateDataMan yest >> /var/log/cronlogs/burfoot/exelatemergeop.log 2>> /var/log/cronlogs/burfoot/exelatemergeop.err
+
+# Exelate billing 
+00 09	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.analytics.ExelateBillingReport yest >> /var/log/cronlogs/burfoot/exelatebilling.log 2>> /var/log/cronlogs/burfoot/exelatebilling.err
+
+# "DigiPixel" home grown third party data, Merge Job
+00 09	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.data_management.DigiPixelDataMan yest >> /var/log/cronlogs/burfoot/digipixelmerge.log 2>> /var/log/cronlogs/burfoot/digipixelmerge.err
+
+# User Index Feature Report, run only on Thursday
+00 05	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.userindex.FeatureReport dow=thr >> /var/log/cronlogs/burfoot/featurereport.log 2>> /var/log/cronlogs/burfoot/featurereport.err
+
+# User Index Evaluation Scheme, run only on Thursday
+00 04	* * * hadoop jar /home/burfoot/jars/adnetik.jar com.adnetik.userindex.EvalScheme dow=wed >> /var/log/cronlogs/burfoot/evalscheme.log 2>> /var/log/cronlogs/burfoot/evalscheme.err
+
+

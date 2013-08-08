@@ -1,0 +1,131 @@
+
+package com.adnetik.analytics;
+
+import java.io.IOException;
+import java.util.*;
+
+//import org.apache.hadoop.io.IntWritable;
+//import org.apache.hadoop.io.Text;
+//import org.apache.hadoop.io.ArrayWritable;
+//import org.apache.hadoop.mapred.Mapper;
+//import org.apache.hadoop.mapred.MapReduceBase;
+//import org.apache.hadoop.mapred.OutputCollector;
+//import org.apache.hadoop.mapred.Reporter;
+
+import org.apache.hadoop.mapred.*; 
+//import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.util.*;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.io.*;
+
+import org.apache.hadoop.io.compress.GzipCodec;
+import org.apache.hadoop.io.compress.CompressionCodec;
+import com.hadoop.compression.lzo.LzopCodec;
+
+import com.adnetik.shared.Util;
+import com.adnetik.shared.Util.ExcName;
+import com.adnetik.shared.BidLogEntry;
+import com.adnetik.shared.BidLogEntry.LogType;
+
+
+public class TecnisaConversionQuery extends Configured implements Tool
+{
+	public static void main(String[] args) throws Exception
+	{
+		int exitCode = ToolRunner.run(new TecnisaConversionQuery(), args);
+		System.exit(exitCode);
+	}
+		
+	public int run(String[] args) throws Exception
+	{		
+		// Create a new JobConf
+		JobConf job = new JobConf(getConf(), this.getClass());
+		
+		job.setJobName("Tecnisa Conversion Query");
+
+		{
+			Text a = new Text("");			
+			IntWritable b = new IntWritable(1);
+			Util.alignJobConf(job, new MyMapper(), new MyReducer(), b, a, b, a);
+		}
+		
+		//Path[] inputPaths = Util.getS3Paths(args[0], Util.S3N_BUCKET_PREF);
+		Path[] inputPaths = Util.readPathsFromMani(args[0], "");
+		Path[] thindPaths = Util.removeNonExistingPaths(FileSystem.get(getConf()), inputPaths);
+			
+				//FileSystem fsys = FileSystem.get(getConf());
+	
+			
+		FileInputFormat.setInputPaths(job, thindPaths);			
+		FileOutputFormat.setOutputPath(job, new Path(args[1]));	
+		
+		job.setInputFormat(com.hadoop.mapred.DeprecatedLzoTextInputFormat.class);
+		
+		//System.out.printf("\nOutput path is %s\n\n", FileOutputFormat.getOutputPath(job));
+		
+		// Submit the job, then poll for progress until the job is complete
+		JobClient.runJob(job);		
+		
+
+		return 0;
+	}
+
+	public static class MyMapper extends MapReduceBase implements Mapper<LongWritable, Text, IntWritable, Text> 
+	{
+	
+		static Set<Integer> TARG_IDS = Util.treeset();
+		
+		static {
+			TARG_IDS.add(517);
+			TARG_IDS.add(448);
+		}
+		
+		//private Text exName;
+		//private Text log = new Text();
+		
+		//private static final Set<Object> excluded = new HashSet<Object>();
+	
+		public void map(LongWritable key, Text value, OutputCollector<IntWritable, Text> output, Reporter reporter) 
+		throws IOException
+		{
+			// Break log into fields for processing
+			BidLogEntry ble = new BidLogEntry(LogType.conversion, value.toString());
+			
+			int campId = ble.getIntField("campaign_id");
+			
+			if(TARG_IDS.contains(campId))
+			{
+				String excId = ble.getField("exchange_user_id");
+				String wtpId = ble.getField("wtp_user_id");
+				
+				if(excId.trim().length() == 0)
+				{ 
+					excId = "NotSet";
+				}
+				
+				if(wtpId.trim().length() == 0)
+				{
+					wtpId = "NotSet";	
+				}
+				
+				String linkKey = Util.sprintf("%s___%s", excId, wtpId);
+				output.collect(new IntWritable(campId), new Text(linkKey));
+			}
+		}
+	}
+
+	public static class MyReducer extends MapReduceBase implements org.apache.hadoop.mapred.Reducer<IntWritable, Text, IntWritable, Text>
+	{
+		public void reduce(IntWritable key, Iterator<Text> values, OutputCollector<IntWritable, Text> collector, Reporter reporter) 
+		throws IOException
+		{
+			while(values.hasNext())
+			{
+				collector.collect(key, values.next());
+			}
+		}		
+	}		
+
+
+}

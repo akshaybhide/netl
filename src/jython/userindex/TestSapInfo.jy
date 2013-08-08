@@ -1,0 +1,44 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.shared.DbUtil import *
+from com.adnetik.bm_etl import SmartAdPuller
+from com.adnetik.bm_etl.BmUtil import *
+from com.adnetik.userindex import StatusReportMan
+
+
+def getAdbMap(sql):
+	
+	adbmap = {}
+	
+	sap = SmartAdPuller(sql)
+	sap.runQuery()
+	
+	for oneline in sap.getOutputLines():
+		(key, val) = oneline.split("\t")
+		adbmap[key] = val
+		
+	return adbmap		
+
+if __name__ == "__main__": 
+
+	"""
+	
+	"""
+	
+	print "Going to test SAPuller"
+	
+	#sql = "SELECT id, name FROM adnetik.campaign"
+
+	sql = "select TL.id, ST.name from adnetik.targeting_list TL join adnetik.targeting_list_status ST on TL.targeting_list_status_id = ST.id"
+	adbmap = getAdbMap(sql)
+	
+	for onekey in adbmap:
+		
+		if not adbmap[onekey] == "completed":
+			print "%s == %s" % (onekey, adbmap[onekey])
+

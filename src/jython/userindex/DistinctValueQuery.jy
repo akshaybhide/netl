@@ -1,0 +1,36 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.slicerep import Stage2MainPull
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.bm_etl.BmUtil import AggType,DbTarget
+from com.adnetik.bm_etl import DatabaseBridge
+from com.adnetik.data_management import ParamPixelMan
+
+if __name__ == "__main__": 
+
+	if len(sys.argv) < 3:
+		print "Usage: DistinctValueQuery.jy <pixid> <key>"
+		sys.exit(1)
+
+	pixid = int(sys.argv[1])
+	key = sys.argv[2]
+	
+	qrun = ParamPixelMan.QueryRunner(pixid)
+		
+	idcountset = qrun.getValueSet(key)
+	
+	if not idcountset.isEmpty():
+		
+		while idcountset.size() > 10:
+			idcountset.pollFirst()
+		
+		for onepair in idcountset:
+			print "Found value %s with %d hits" % (onepair._2, onepair._1)
+	
+					
+
+	

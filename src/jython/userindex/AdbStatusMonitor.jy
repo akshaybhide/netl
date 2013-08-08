@@ -1,0 +1,81 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import SimpleMail,TimeUtil,DbUtil
+from com.adnetik.shared.DbUtil import *
+from com.adnetik.bm_etl import DatabaseBridge,BmUtil,SmartAdPuller
+from com.adnetik.bm_etl.BmUtil import *
+from com.adnetik.userindex import StatusReportMan
+
+
+def getAdbMap(sql):
+	
+	adbmap = {}
+	
+	sap = SmartAdPuller(sql)
+	sap.runQuery(False)
+	
+	for oneline in sap.getOutputLines():
+		(key, val) = oneline.split("\t")
+		adbmap[key] = val
+		
+	return adbmap		
+
+def getMap(sql, csource):
+	
+	pairlist = DbUtil.execSqlQueryPair(sql, csource)
+	
+	resmap = {}
+	
+	for p in pairlist:
+		resmap[str(p._1)] = str(p._2)
+	
+	#gimp = [resmap[p._1] = p._2 for p in pairlist]
+	
+	return resmap
+
+if __name__ == "__main__": 
+
+	"""
+	
+	"""
+
+	daycode = TimeUtil.getTodayCode()
+	logmail = SimpleMail("AdbStatusMonitorReport for %s" % (daycode))
+	repman = StatusReportMan()
+	
+	extsource = DatabaseBridge(DbTarget.external)
+	
+	list2adb = getMap("SELECT listcode, adb_list_id FROM userindex.listen_code WHERE adb_list_id IS NOT NULL", extsource)
+	list2ext = getMap("SELECT listcode, ext_list_id FROM userindex.listen_code WHERE ext_list_id IS NOT NULL", extsource)
+
+	adb2stat = getAdbMap("select TL.id, ST.name from adnetik.targeting_list TL join adnetik.targeting_list_status ST on TL.targeting_list_status_id = ST.id")
+
+	errcount = 0
+	
+	for onelist in list2adb:
+	
+		if not onelist in list2ext:
+			continue
+			
+		disk_stat = repman.getStatusInfo(onelist).getAdbString()
+		
+		adb_stat = adb2stat[str(list2adb[onelist])]
+		
+		if not (disk_stat == adb_stat):
+			if not (disk_stat == 'new'):
+				emssg = "For listcode %s, ADB ID %s, EXT ID %s, ADB status is %s, DISK status is %s\n" % (onelist, list2adb[onelist], list2ext[onelist], adb_stat, disk_stat)
+				logmail.pf(emssg)
+				errcount += 1
+			
+	
+	logmail.pf("Finished AdbStatusMonitor, checked %d list codes, got %d errors", len(list2adb), errcount)
+	
+	if errcount > 0:
+		logmail.sendPlusAdmin("eugenia.harris@digilant.com")
+	else:
+		logmail.send2admin()
+

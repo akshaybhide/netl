@@ -1,0 +1,53 @@
+#!/home/burfoot/software/jython/jython
+
+import re, os, sys, fileinput, random
+
+sys.path.append("/home/burfoot/jars/adnetik.jar")
+
+from com.adnetik.shared import SimpleMail,TimeUtil,FieldLookup,Util,BidLogEntry
+from com.adnetik.shared.Util import *
+
+if __name__ == "__main__": 
+
+
+	if len (sys.argv) < 3:	
+		print "Usage: GrabFields.jy <logtype> <logversion> <fieldlist>"
+		sys.exit(1)
+		
+	logtype = LogType.valueOf(sys.argv[1])
+	logvers = LogVersion.valueOf(sys.argv[2])	
+	fnlist = [LogField.valueOf(onef) for onef in sys.argv[3].split(",")]
+	
+	
+	
+	for oneline in sys.stdin:
+		
+		ble = BidLogEntry(logtype, logvers, oneline)
+		
+		for onef in fnlist:
+			print "%s" % (ble.getField(onef)),
+			
+		print ""		
+		
+
+#	logvers = Util.LogVersion.valueOf(sys.argv[1])	
+#	
+#	if len(sys.argv) == 3:
+#		typelist = [LogType.valueOf(sys.argv[2])]
+#	else:
+#		typelist = [LogType.click, LogType.conversion, LogType.imp, LogType.bid_all, LogType.no_bid_all]	
+#		
+#	for logtype in typelist:
+#		
+#		print "Going to run for type=%s, vers=%s" % (logtype, logvers)
+#	
+#		fname = "%s_%s.txt" % (logtype, logvers)
+#	
+#		flist = FieldLookup.getFieldList(logtype, logvers)
+#	
+#		fhandle = open(fname, "w")
+#	
+#		for i in range(len(flist)):
+#			fhandle.write("%d\t%s\n" % (i+1, flist[i]))
+#			
+#		fhandle.close()
