@@ -33,7 +33,9 @@ public class AggregationWrapper {
 		String configpath = args[3];
 		String ip = args[4];
 		String dbtype = args[5];
-		AggregationWrapper aw = new AggregationWrapper(dbtype, ip, "fastetl", "pixel_dimensions", "pixel_general");
+                AggregationWrapper aw = new AggregationWrapper(dbtype, ip, "fastetl", "pixel_dimensions", "akshay_general");
+
+		//AggregationWrapper aw = new AggregationWrapper(dbtype, ip, "fastetl", "pixel_dimensions", "pixel_general");
 		//AggregationWrapper aw = new AggregationWrapper("thorin-internal.adnetik.com", "fastpixel", "pixel_dimensions", "pixel_general");
 		aw.schedule(initdate,lookback, lookfw, configpath);
 	}

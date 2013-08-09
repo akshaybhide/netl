@@ -20,23 +20,36 @@ public class GPixelLogEntry // extends LogEntry
 	
 	private static Map<PixLogVersion, Map<String, Integer>> _VFIELDMAP;
 	
-	public enum PixLogVersion { v1, v2 };
+	public enum PixLogVersion { v2 };
 	public static void init(String machine, String db, String[] tables){
 		_VFIELDMAP = new HashMap<PixLogVersion, Map<String, Integer>>();
 		for(PixLogVersion v : PixLogVersion.values()){
 			
 			try {
-					String query = "select * from " + tables[v.ordinal()];
+					/*String query = "select * from " + tables[v.ordinal()];
 					CachedRowSet rs = DBConnection.runQuery(machine, db, query);
 					Map<String, Integer> fmap = Util.treemap();
 					while(rs.next()){
 					String colname = rs.getString(1).trim();
 					int colno = rs.getInt(2);
-					fmap.put(colname, colno);
-				}
+					fmap.put(colname, colno);*/
+					Map<String, Integer> fmap = Util.treemap();
+					fmap.put("country", 2);
+					fmap.put("date_time", 0);
+					fmap.put("https",11);
+					fmap.put("ip",1);
+					fmap.put("pixel_type",10);
+					fmap.put("referer",5);
+					fmap.put("region",3);
+					fmap.put("request_uri",4);
+					fmap.put("segment_id",8);
+					fmap.put("segment_type",9);
+					fmap.put("useragent",6);
+					fmap.put("uuid",7);
+//				}
 					_VFIELDMAP.put(v, fmap);
 				
-			} catch (SQLException sqlex) {
+			} catch (Exception sqlex) {
 				
 				throw new RuntimeException(sqlex);
 			}			

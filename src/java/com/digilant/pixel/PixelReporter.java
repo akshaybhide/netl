@@ -485,6 +485,7 @@ public class PixelReporter {
 		Object[] copyofbrokenfiles = brokenfiles.toArray();
 		for(int i = 0;i < copyofbrokenfiles.length ; i++){
 			String onepath  = (String)copyofbrokenfiles[i];
+			System.out.println("onepath : " + onepath);
 			Util.pf("last attempt for file : %s , if doesn't work it is ignored till next 15 minutes\n", onepath);
 			processFile(onepath, 501);
 			
@@ -531,6 +532,8 @@ public class PixelReporter {
 	void add(BufferedReader bread, String filepath) throws IOException{
 		for(String oneline = bread.readLine(); oneline != null; oneline = bread.readLine())
 		{
+                        //System.out.println("oneline : " + oneline);
+			//System.out.println("filepath : " + filepath);
 			if(processLogLine(oneline, filepath))
 				;//usefullineitem++;
 		}
@@ -565,6 +568,7 @@ public class PixelReporter {
 			String val;
 			for(String col:colnames){
 				//if(col.equals("https")|| col.equals("segment_id")||col.equals("uuid")||col.equals("segment_type")) continue;
+				//System.out.println("col : "+col);
 				if(col.toLowerCase().equals("hour")) continue;
 				if(col.toLowerCase().equals("id_region")){
 					String id_country = _hmCatalog.get("id_country").get(logentry.getField("country"));
@@ -573,6 +577,7 @@ public class PixelReporter {
 					val = logentry.getField(_hmDims.get(col).get("logfield_name").trim()) +"_" +id_country;
 				}
 				else
+					//System.out.println("col name : " + _hmDims.get(col).get("logfield_name").trim()); 
 					val = logentry.getField(_hmDims.get(col).get("logfield_name").trim());
 				if(added){
 					constpart.append(delim);
